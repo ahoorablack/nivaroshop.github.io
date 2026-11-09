@@ -4,83 +4,666 @@
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="NIVARO Studio — طراحی سایت حرفه‌ای برای کسب‌وکارها">
 <title>NIVARO Studio | طراحی سایت</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#0c0d0f;--panel:#15171a;--text:#f5f4f0;--muted:#aaaeb5;--line:#2b2d31;--gold:#d9b887}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font-family:Tahoma,Arial,sans-serif;line-height:1.8}
-a{color:inherit;text-decoration:none}button,input,textarea,select{font:inherit}.wrap{width:min(1120px,92%);margin:auto}
-header{border-bottom:1px solid var(--line);position:sticky;top:0;background:#0c0d0fee;backdrop-filter:blur(12px);z-index:5}
-.nav{display:flex;justify-content:space-between;align-items:center;gap:20px;padding:16px 0}.brand{font:700 24px Georgia,serif;letter-spacing:4px;direction:ltr}.brand span{display:block;font:10px Tahoma;letter-spacing:3px;text-align:center;color:var(--gold)}
-nav{display:flex;gap:22px;font-size:13px;color:#ddd}nav a:hover{color:var(--gold)}.btn{display:inline-block;border:1px solid var(--gold);background:var(--gold);color:#171717;padding:11px 18px;border-radius:8px;font-weight:bold;cursor:pointer}.btn.outline{background:transparent;color:var(--text);border-color:#505157}
-.hero{padding:88px 0 76px;background:radial-gradient(ellipse at 80% 10%,#453827 0,transparent 42%),linear-gradient(130deg,#101113,#17191d)}
-.eyebrow{color:var(--gold);font-size:12px;letter-spacing:2px}.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;align-items:center;gap:50px}.hero h1{font-size:clamp(36px,5.4vw,66px);line-height:1.35;margin:15px 0}.hero p{color:var(--muted);max-width:570px}.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:25px}.mock{border:1px solid #44464a;background:#f3f0ea;border-radius:16px;overflow:hidden;box-shadow:0 25px 70px #0007;transform:rotate(-1deg);color:#111}.mock-top{height:32px;background:#e1ddd6;display:flex;align-items:center;gap:5px;padding:0 12px}.mock-top i{width:7px;height:7px;background:#9b9892;border-radius:50%}.mock-body{padding:20px;color:#171717}.mock-logo{font:22px Georgia;letter-spacing:3px;text-align:center}.mock-banner{margin-top:18px;min-height:145px;border-radius:8px;background:linear-gradient(120deg,#252525aa,#25252533),url('https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=900&q=80') center/cover;display:flex;align-items:center;padding:18px;color:white;font-size:23px;font-weight:bold}.mock-products{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:12px}.mock-products div{background:#e5e0d7;border-radius:5px;height:55px}
-section{padding:68px 0}.section-title{font-size:30px;margin:0 0 10px}.lead{color:var(--muted);margin:0 0 28px}.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.card{background:var(--panel);border:1px solid var(--line);border-radius:13px;padding:23px}.num{color:var(--gold);font:24px Georgia}.card h3{margin:8px 0}.card p{color:var(--muted);font-size:14px;margin-bottom:0}.portfolio{background:#111316}.sample{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#f1eee8;color:#111}.sample-head{padding:13px 16px;background:#e4dfd6;display:flex;justify-content:space-between;font-size:12px}.sample-preview{padding:22px;min-height:165px;background:linear-gradient(100deg,#242424d9,#24242422),url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=900&q=80') center/cover;color:#fff;display:flex;flex-direction:column;justify-content:center}.sample-preview h3{font-size:25px;margin:0}.sample-foot{padding:15px;font-size:13px;background:#fff}.steps .card{min-height:150px}.contact-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:35px}.contact-box{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:24px}.contact-box p{color:var(--muted)}form{display:grid;gap:12px}label{font-size:13px;color:#ddd}input,textarea,select{width:100%;padding:12px;border-radius:7px;border:1px solid #3a3c41;background:#101114;color:white}textarea{min-height:100px;resize:vertical}.hint{font-size:12px;color:var(--muted)}footer{border-top:1px solid var(--line);padding:24px 0;color:var(--muted);font-size:12px}.toast{position:fixed;bottom:18px;left:18px;background:#f5f4f0;color:#111;padding:12px 16px;border-radius:8px;display:none;z-index:10}
-@media(max-width:760px){nav{display:none}.hero{padding:55px 0}.hero-grid,.contact-grid{grid-template-columns:1fr}.mock{max-width:500px}.cards{grid-template-columns:1fr}.section-title{font-size:25px}section{padding:48px 0}}
+:root{
+  --bg:#0a0e14;--bg-2:#0e131b;--panel:#121821;--panel-2:#161d28;
+  --text:#e8edf5;--muted:#8b96a8;--line:#1e2634;--line-2:#2a3444;
+  --accent:#2dd4bf;--accent-2:#14b8a6;--accent-soft:rgba(45,212,191,.12);--accent-glow:rgba(45,212,191,.35);
+}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font-family:'Vazirmatn',Tahoma,Arial,sans-serif;font-weight:400;line-height:1.9;-webkit-font-smoothing:antialiased;background-image:radial-gradient(ellipse at 80% -10%,rgba(45,212,191,.08),transparent 50%),radial-gradient(ellipse at 0% 100%,rgba(20,184,166,.06),transparent 50%);background-attachment:fixed}
+a{color:inherit;text-decoration:none;transition:color .2s}
+button,input,textarea,select{font:inherit;font-family:'Vazirmatn',Tahoma,sans-serif}
+h1,h2,h3,h4{font-family:'Vazirmatn',Tahoma,sans-serif;font-weight:800;letter-spacing:-.01em;margin:0}
+.wrap{width:min(1140px,92%);margin:auto}
+
+/* HEADER */
+header{border-bottom:1px solid var(--line);position:sticky;top:0;background:rgba(10,14,20,.8);backdrop-filter:blur(16px);z-index:50}
+.nav{display:flex;justify-content:space-between;align-items:center;gap:20px;padding:14px 0}
+.brand{font:800 22px 'Vazirmatn',sans-serif;letter-spacing:3px;direction:ltr;line-height:1;color:var(--text)}
+.brand span{display:block;font:600 9px 'Vazirmatn',sans-serif;letter-spacing:3px;text-align:center;color:var(--accent);margin-top:4px}
+nav{display:flex;gap:24px;font-size:14px;font-weight:500;color:#a8b2c1}
+nav a:hover{color:var(--accent)}
+.nav-actions{display:flex;gap:10px;align-items:center}
+
+/* BUTTONS */
+.btn{display:inline-block;border:1px solid var(--accent);background:var(--accent);color:#0a0e14;padding:12px 22px;border-radius:10px;font-weight:700;font-size:14px;cursor:pointer;transition:all .25s ease}
+.btn:hover{background:var(--accent-2);border-color:var(--accent-2);transform:translateY(-2px);box-shadow:0 10px 30px var(--accent-glow)}
+.btn.outline{background:transparent;color:var(--text);border-color:var(--line-2)}
+.btn.outline:hover{background:var(--panel);border-color:var(--accent);color:var(--accent);box-shadow:none}
+.btn.sm{padding:9px 16px;font-size:13px}
+
+/* HERO */
+.hero{padding:96px 0 80px;position:relative;overflow:hidden}
+.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;align-items:center;gap:56px;position:relative}
+.eyebrow{color:var(--accent);font-size:13px;font-weight:600;display:inline-block;padding:6px 14px;border:1px solid rgba(45,212,191,.25);border-radius:20px;background:var(--accent-soft);letter-spacing:.3px}
+.hero h1{font-size:clamp(34px,5vw,60px);line-height:1.25;margin:20px 0 18px;font-weight:900}
+.hero h1 em{font-style:normal;color:var(--accent);position:relative;white-space:nowrap;text-shadow:0 0 40px var(--accent-glow)}
+.hero p{color:var(--muted);max-width:580px;font-size:16px;line-height:2}
+.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
+.hero-stats{display:flex;gap:34px;margin-top:42px;flex-wrap:wrap}
+.hero-stats div{display:flex;flex-direction:column;position:relative;padding-right:14px}
+.hero-stats div::before{content:"";position:absolute;right:0;top:6px;bottom:6px;width:2px;background:var(--accent);border-radius:2px;opacity:.6}
+.hero-stats strong{font-size:24px;color:var(--text);font-weight:800;letter-spacing:-.02em}
+.hero-stats span{font-size:12px;color:var(--muted);margin-top:2px}
+
+/* MOCK */
+.mock{border:1px solid var(--line-2);background:#0f141c;border-radius:18px;overflow:hidden;box-shadow:0 40px 80px -20px rgba(0,0,0,.6),0 0 0 1px rgba(45,212,191,.05),0 0 60px -20px var(--accent-glow);transform:rotate(-1.5deg);transition:transform .5s ease}
+.mock:hover{transform:rotate(0) scale(1.02)}
+.mock-top{height:34px;background:#161d28;display:flex;align-items:center;gap:6px;padding:0 14px;border-bottom:1px solid var(--line)}
+.mock-top i{width:9px;height:9px;border-radius:50%}
+.mock-top i:nth-child(1){background:#ef4444}.mock-top i:nth-child(2){background:#f59e0b}.mock-top i:nth-child(3){background:#10b981}
+.mock-body{padding:22px;color:var(--text)}
+.mock-logo{font:800 20px 'Vazirmatn';letter-spacing:3px;text-align:center;color:var(--accent)}
+.mock-banner{margin-top:18px;min-height:150px;border-radius:10px;background:linear-gradient(120deg,rgba(10,14,20,.9),rgba(10,14,20,.35)),url('https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=900&q=80') center/cover;display:flex;align-items:center;padding:20px;color:#fff;font-size:22px;font-weight:700;line-height:1.4;border:1px solid var(--line)}
+.mock-products{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:14px}
+.mock-products div{background:#161d28;border:1px solid var(--line);border-radius:6px;height:58px}
+
+/* TRUST BAR */
+.trust-bar{background:var(--bg-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:26px 0}
+.trust-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;text-align:center}
+.trust-item{display:flex;flex-direction:column;gap:3px}
+.trust-item strong{color:var(--accent);font-size:15px;font-weight:700}
+.trust-item span{color:var(--muted);font-size:12px}
+
+/* SECTIONS */
+section{padding:86px 0}
+.section-title{font-size:clamp(26px,3.2vw,34px);margin:0 0 12px;font-weight:800}
+.section-title em{font-style:normal;color:var(--accent)}
+.lead{color:var(--muted);margin:0 0 36px;max-width:640px;font-size:15px}
+
+/* CARDS */
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:28px;transition:all .3s ease;position:relative;overflow:hidden}
+.card::before{content:"";position:absolute;top:0;right:0;left:0;height:1px;background:linear-gradient(90deg,transparent,var(--accent),transparent);opacity:0;transition:opacity .3s}
+.card:hover{transform:translateY(-4px);border-color:var(--line-2);box-shadow:0 20px 40px -20px rgba(0,0,0,.6),0 0 30px -15px var(--accent-glow)}
+.card:hover::before{opacity:1}
+.num{color:var(--accent);font:700 13px 'Vazirmatn';letter-spacing:1px;background:var(--accent-soft);display:inline-block;padding:4px 11px;border-radius:6px;margin-bottom:4px;border:1px solid rgba(45,212,191,.2)}
+.card h3{margin:10px 0 8px;font-size:18px;font-weight:700}
+.card p{color:var(--muted);font-size:14px;margin-bottom:0;line-height:1.95}
+
+/* PORTFOLIO */
+.portfolio{background:var(--bg-2)}
+.sample{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--panel);transition:all .3s ease;cursor:pointer}
+.sample:hover{transform:translateY(-4px);box-shadow:0 24px 50px -20px rgba(0,0,0,.6),0 0 40px -20px var(--accent-glow);border-color:var(--line-2)}
+.sample-head{padding:14px 18px;background:var(--panel-2);display:flex;justify-content:space-between;font-size:12px;font-weight:600;border-bottom:1px solid var(--line);color:var(--muted)}
+.sample-preview{padding:24px;min-height:170px;background:linear-gradient(100deg,rgba(10,14,20,.85),rgba(10,14,20,.25)),url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=900&q=80') center/cover;color:#fff;display:flex;flex-direction:column;justify-content:center}
+.sample-preview h3{font-size:24px;margin:0;font-weight:800;line-height:1.35}
+.sample-preview span{font-size:12px;opacity:.9;margin-top:6px;color:var(--accent)}
+.sample-foot{padding:16px;font-size:13px;background:var(--panel);color:var(--muted)}
+
+/* BUILDER */
+.builder-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:50px;align-items:center}
+.builder-card{background:linear-gradient(145deg,var(--panel-2),var(--panel));border:1px solid var(--line-2);border-radius:20px;padding:36px;position:relative;overflow:hidden;text-align:center}
+.builder-card::before{content:"";position:absolute;top:0;right:0;left:0;height:3px;background:linear-gradient(90deg,transparent,var(--accent),transparent)}
+.builder-avatar{width:96px;height:96px;border-radius:50%;margin:0 auto 20px;background:linear-gradient(135deg,var(--accent),var(--accent-2));display:flex;align-items:center;justify-content:center;font-size:38px;font-weight:900;color:#0a0e14;box-shadow:0 0 40px var(--accent-glow);position:relative}
+.builder-avatar::after{content:"";position:absolute;inset:-6px;border-radius:50%;border:2px dashed rgba(45,212,191,.3);animation:spin 20s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.builder-card h3{font-size:22px;margin:0 0 4px}
+.builder-card .role{color:var(--accent);font-size:13px;font-weight:600;margin:0 0 18px}
+.builder-card p{color:var(--muted);font-size:14px;margin:0;line-height:1.95}
+.builder-text p{color:var(--muted);margin:0 0 16px;line-height:2}
+.values{list-style:none;padding:0;margin:24px 0 0;display:grid;gap:12px}
+.values li{display:flex;gap:12px;align-items:flex-start;font-size:14px;color:#c8d0dc;font-weight:500}
+.values li::before{content:"✓";width:22px;height:22px;border-radius:50%;background:var(--accent-soft);color:var(--accent);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;flex-shrink:0;margin-top:3px;border:1px solid rgba(45,212,191,.3)}
+
+/* PRICING */
+.pricing{background:var(--bg-2)}
+.price-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;align-items:stretch}
+.price-card{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:32px;position:relative;transition:all .3s ease;display:flex;flex-direction:column}
+.price-card:hover{transform:translateY(-4px);box-shadow:0 24px 50px -25px rgba(0,0,0,.6);border-color:var(--line-2)}
+.price-card.featured{border:2px solid var(--accent);box-shadow:0 0 50px -20px var(--accent-glow)}
+.price-card.featured::before{content:"پیشنهاد ویژه";position:absolute;top:-13px;right:50%;transform:translateX(50%);background:var(--accent);color:#0a0e14;font-size:11px;font-weight:800;padding:5px 14px;border-radius:20px;white-space:nowrap;letter-spacing:.3px}
+.price-card h3{margin:0 0 6px;font-size:18px}
+.price-card .desc{color:var(--muted);font-size:13px;margin:0 0 20px}
+.price{color:var(--text);font-size:14px;margin-bottom:18px;padding-bottom:18px;border-bottom:1px solid var(--line)}
+.price strong{font-size:26px;display:block;line-height:1.2;font-weight:800;color:var(--accent)}
+.price span{font-size:12px;color:var(--muted);display:block;margin-top:2px}
+.price-features{list-style:none;padding:0;margin:0 0 24px;display:grid;gap:10px;flex:1}
+.price-features li{font-size:13.5px;color:#c8d0dc;display:flex;gap:9px;align-items:flex-start;line-height:1.7}
+.price-features li::before{content:"✓";color:var(--accent);font-weight:800;flex-shrink:0;width:16px}
+.price-features li.no{color:#5a6474}
+.price-features li.no::before{content:"×";color:#3a4354}
+.price-card .btn{width:100%;text-align:center}
+
+/* STEPS */
+.steps .card{min-height:190px}
+
+/* COMMENTS */
+.comments{background:var(--bg-2)}
+.comment-list{display:grid;gap:16px;max-width:800px;margin:0 auto}
+.comment-card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:22px;display:flex;gap:16px;transition:all .25s}
+.comment-card:hover{border-color:var(--line-2);transform:translateX(-4px)}
+.comment-avatar{width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent-2));display:flex;align-items:center;justify-content:center;color:#0a0e14;font-weight:800;font-size:16px;flex-shrink:0}
+.comment-body{flex:1}
+.comment-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;flex-wrap:wrap;gap:8px}
+.comment-head strong{font-size:14px;color:var(--text)}
+.comment-head span{font-size:11px;color:var(--muted)}
+.comment-text{color:#c8d0dc;font-size:13.5px;margin:0;line-height:1.9}
+.comment-form{margin-top:30px;max-width:800px;margin-left:auto;margin-right:auto;background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:26px}
+.comment-form h3{margin:0 0 6px;font-size:17px}
+.comment-form p{color:var(--muted);font-size:13px;margin:0 0 18px}
+
+/* FAQ */
+.faq-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:50px;align-items:start}
+.faq-list{display:grid;gap:12px}
+.faq-item{background:var(--panel);border:1px solid var(--line);border-radius:12px;overflow:hidden;transition:border-color .2s}
+.faq-item:hover{border-color:var(--line-2)}
+.faq-item[open]{border-color:rgba(45,212,191,.3)}
+.faq-item summary{list-style:none;cursor:pointer;padding:18px 20px;font-weight:600;font-size:14px;display:flex;justify-content:space-between;align-items:center;gap:12px;color:var(--text)}
+.faq-item summary::-webkit-details-marker{display:none}
+.faq-item summary::after{content:"+";color:var(--accent);font-size:22px;font-weight:400;transition:transform .25s;flex-shrink:0;line-height:1}
+.faq-item[open] summary::after{transform:rotate(45deg)}
+.faq-item p{margin:0;padding:0 20px 20px;color:var(--muted);font-size:13.5px;line-height:1.95}
+
+/* CONTACT */
+.contact-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:40px}
+.contact-box{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:30px}
+.contact-box h3{margin:0 0 6px;font-size:18px}
+.contact-box p{color:var(--muted);font-size:14px;line-height:1.95}
+.contact-info{display:grid;gap:12px;margin-top:20px}
+.contact-info a{display:flex;gap:10px;align-items:center;font-size:13.5px;padding:12px 14px;border:1px solid var(--line);border-radius:10px;transition:all .2s;font-weight:500}
+.contact-info a:hover{border-color:var(--accent);color:var(--accent);background:var(--accent-soft)}
+.contact-info a span{color:var(--accent);font-size:16px}
+
+form{display:grid;gap:14px}
+label{font-size:13px;color:#c8d0dc;display:block;margin-bottom:6px;font-weight:600}
+input,textarea,select{width:100%;padding:13px 14px;border-radius:10px;border:1px solid var(--line-2);background:var(--bg-2);color:var(--text);transition:all .2s;font-size:14px}
+input:focus,textarea:focus,select:focus{outline:none;border-color:var(--accent);background:var(--bg);box-shadow:0 0 0 4px var(--accent-soft)}
+input::placeholder,textarea::placeholder{color:#5a6474}
+textarea{min-height:110px;resize:vertical}
+.hint{font-size:12px;color:var(--muted)}
+
+/* CTA */
+.cta-band{padding:80px 0;background:var(--bg-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line);text-align:center;position:relative;overflow:hidden}
+.cta-band::before{content:"";position:absolute;top:-100px;left:50%;transform:translateX(-50%);width:700px;height:400px;background:radial-gradient(circle,var(--accent-glow),transparent 70%);opacity:.4;pointer-events:none}
+.cta-band h2{font-size:clamp(26px,3.5vw,40px);margin:0 0 14px;font-weight:800;position:relative}
+.cta-band p{color:var(--muted);margin:0 auto 30px;max-width:560px;font-size:15px;position:relative}
+.cta-band .btn{position:relative}
+
+/* FOOTER */
+footer{background:var(--bg-2);color:var(--muted);padding:56px 0 28px;font-size:13px;border-top:1px solid var(--line)}
+.foot-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:40px;margin-bottom:34px}
+.foot-brand .brand{color:var(--text)}
+.foot-brand .brand span{color:var(--accent)}
+.foot-brand p{margin:14px 0 0;max-width:300px;line-height:1.95}
+.foot-col h4{color:var(--text);font-size:14px;margin:0 0 14px;font-weight:700}
+.foot-col a{display:block;margin-bottom:10px;transition:color .2s}
+.foot-col a:hover{color:var(--accent)}
+.foot-bottom{border-top:1px solid var(--line);padding-top:22px;display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap;font-size:12px}
+
+/* MODAL */
+.modal-overlay{position:fixed;inset:0;background:rgba(5,8,12,.85);backdrop-filter:blur(8px);z-index:100;display:none;align-items:center;justify-content:center;padding:20px;opacity:0;transition:opacity .3s}
+.modal-overlay.active{display:flex;opacity:1}
+.modal{background:var(--panel);border:1px solid var(--line-2);border-radius:18px;max-width:900px;width:100%;max-height:90vh;overflow-y:auto;position:relative;transform:scale(.95);transition:transform .3s}
+.modal-overlay.active .modal{transform:scale(1)}
+.modal-head{display:flex;justify-content:space-between;align-items:center;padding:22px 26px;border-bottom:1px solid var(--line);position:sticky;top:0;background:var(--panel);z-index:2}
+.modal-head h3{margin:0;font-size:18px}
+.modal-close{background:var(--panel-2);border:1px solid var(--line);color:var(--text);width:36px;height:36px;border-radius:50%;cursor:pointer;font-size:18px;display:flex;align-items:center;justify-content:center;transition:all .2s}
+.modal-close:hover{background:var(--accent);color:#0a0e14;border-color:var(--accent)}
+.modal-body{padding:26px}
+.demo-grid{display:grid;grid-template-columns:1fr;gap:24px}
+.demo-item{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--bg-2)}
+.demo-item-head{padding:14px 18px;background:var(--panel-2);display:flex;justify-content:space-between;align-items:center;font-size:13px;font-weight:600;border-bottom:1px solid var(--line)}
+.demo-item-head span:last-child{color:var(--accent);font-weight:700}
+.demo-preview{padding:30px;min-height:220px;display:flex;flex-direction:column;justify-content:center;color:#fff;position:relative}
+.demo-preview.shop{background:linear-gradient(100deg,rgba(10,14,20,.88),rgba(10,14,20,.3)),url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1200&q=80') center/cover}
+.demo-preview.corp{background:linear-gradient(100deg,rgba(10,14,20,.88),rgba(10,14,20,.3)),url('https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1200&q=80') center/cover}
+.demo-preview.personal{background:linear-gradient(100deg,rgba(10,14,20,.88),rgba(10,14,20,.3)),url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80') center/cover}
+.demo-preview h4{font-size:28px;margin:0 0 8px;font-weight:800;line-height:1.3}
+.demo-preview p{font-size:13px;opacity:.9;margin:0;max-width:420px}
+.demo-tags{display:flex;gap:8px;margin-top:16px;flex-wrap:wrap}
+.demo-tags span{font-size:11px;padding:4px 10px;border-radius:20px;background:rgba(45,212,191,.15);border:1px solid rgba(45,212,191,.3);color:var(--accent);font-weight:600}
+
+/* Animations */
+.fade-in{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+.fade-in.visible{opacity:1;transform:translateY(0)}
+
+@media(max-width:900px){
+  .hero-grid,.contact-grid,.builder-grid,.faq-grid{grid-template-columns:1fr}
+  .trust-grid{grid-template-columns:repeat(2,1fr)}
+  .price-grid{grid-template-columns:1fr}
+  .foot-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:760px){
+  nav{display:none}
+  .hero{padding:60px 0 50px}
+  .cards{grid-template-columns:1fr}
+  .section-title{font-size:24px}
+  section{padding:60px 0}
+  .foot-grid{grid-template-columns:1fr}
+  .hero-stats{gap:24px}
+  .nav-actions .btn.outline{display:none}
+}
 </style>
 </head>
 <body>
-<header><div class="wrap nav"><a class="brand" href="#home">NIVARO<span>WEB STUDIO</span></a><nav><a href="#services">خدمات</a><a href="#work">نمونه‌کار</a><a href="#process">مراحل کار</a><a href="#contact">تماس</a></nav><a class="btn" href="#contact">سفارش سایت</a></div></header>
-<main id="home">
-<section class="hero"><div class="wrap hero-grid"><div><div class="eyebrow">طراحی سایت · هویت دیجیتال · تجربه کاربری</div><h1>کسب‌و‌کارت رو<br>آنلاین حرفه‌ای کن.</h1><p>ما برای کسب‌وکارها سایت‌های مدرن، سریع و سازگار با موبایل طراحی می‌کنیم؛ از سایت معرفی تا فروشگاه اینترنتی.</p><div class="actions"><a class="btn" href="#contact">شروع یک پروژه</a><a class="btn outline" href="#work">دیدن نمونه‌کار</a></div></div>
-<div class="mock"><div class="mock-top"><i></i><i></i><i></i></div><div class="mock-body"><div class="mock-logo">NIVARO</div><div class="mock-banner">استایل خاص،<br>با کیفیت بالا</div><div class="mock-products"><div></div><div></div><div></div></div></div></div>
-</div></section>
-<section id="services"><div class="wrap"><h2 class="section-title">چه سایتی لازم داری؟</h2><p class="lead">طراحی متناسب با نیاز و بودجه‌ی کسب‌وکار شما.</p><div class="cards">
-<article class="card"><div class="num">01</div><h3>سایت معرفی کسب‌وکار</h3><p>معرفی خدمات، درباره ما، اطلاعات تماس و مسیرهای ارتباطی برای شرکت‌ها و مغازه‌ها.</p></article>
-<article class="card"><div class="num">02</div><h3>فروشگاه اینترنتی</h3><p>صفحه محصولات، دسته‌بندی، جست‌وجو و سبد خرید؛ امکانات نهایی طبق نیاز پروژه مشخص می‌شود.</p></article>
-<article class="card"><div class="num">03</div><h3>صفحه فرود تبلیغاتی</h3><p>یک صفحه شیک و سریع برای معرفی محصول، کمپین یا گرفتن سفارش و درخواست مشتری.</p></article>
-</div></div></section>
-<section class="portfolio" id="work"><div class="wrap"><h2 class="section-title">نمونه طراحی</h2><p class="lead">نمونه‌ی مفهومی برای نمایش سبک طراحی؛ این بخش را با پروژه‌های واقعی خودت جایگزین کن.</p><div class="cards">
-<div class="sample"><div class="sample-head"><span>نمونه فروشگاهی</span><span>01</span></div><div class="sample-preview"><h3>استایل خودت را زندگی کن.</h3><span>فروشگاه لباس</span></div><div class="sample-foot">صفحه اصلی فروشگاه لباس با طراحی واکنش‌گرا</div></div>
-<div class="sample"><div class="sample-head"><span>نمونه شرکتی</span><span>02</span></div><div class="sample-preview" style="background-image:linear-gradient(100deg,#242424dd,#24242444),url('https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=900&q=80')"><h3>کار شما، حرفه‌ای‌تر.</h3><span>سایت شرکتی</span></div><div class="sample-foot">معرفی خدمات و راه‌های ارتباطی</div></div>
-<div class="sample"><div class="sample-head"><span>نمونه شخصی</span><span>03</span></div><div class="sample-preview" style="background-image:linear-gradient(100deg,#242424dd,#24242444),url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=900&q=80')"><h3>ایده‌ات را آنلاین کن.</h3><span>نمونه‌کار شخصی</span></div><div class="sample-foot">رزومه و معرفی خدمات فریلنسری</div></div>
-</div></div></section>
-<section class="steps" id="process"><div class="wrap"><h2 class="section-title">مراحل انجام پروژه</h2><p class="lead">شفاف و مرحله‌به‌مرحله، از ایده تا انتشار.</p><div class="cards"><article class="card"><div class="num">01</div><h3>نیازسنجی</h3><p>درباره هدف سایت، مخاطب و امکانات موردنیاز صحبت می‌کنیم.</p></article><article class="card"><div class="num">02</div><h3>طراحی و بازبینی</h3><p>طرح اولیه آماده می‌شود و بازخورد شما اعمال می‌شود.</p></article><article class="card"><div class="num">03</div><h3>تحویل و انتشار</h3><p>پس از تأیید، فایل‌ها و روش انتشار سایت تحویل داده می‌شود.</p></article></div></div></section>
-<section id="contact"><div class="wrap contact-grid"><div><h2 class="section-title">درباره پروژه‌ات حرف بزنیم.</h2><p class="lead">فرم را پر کن؛ درخواستت مستقیم به دست ما می‌رسد.</p><div class="contact-box"><h3>NIVARO Web Studio</h3><p>طراحی سایت برای کسب‌وکارهایی که می‌خواهند آنلاین دیده شوند.</p><p>✉️ برای اطلاعات بیشتر به ایدی روبیکا پیام بده : <a href="https://ble.ir/ahoora_black" target="_blank" rel="noopener noreferrer">@ahoora_black</a>.</p></div></div>
-<div class="contact-box">
-<form id="contactForm" action="https://formspree.io/f/myeeqeqn" method="POST">
-  <div><label for="name">نام</label><input id="name" name="name" required placeholder="نام شما"></div>
-  <div><label for="email">ایمیل (اختیاری)</label><input id="email" name="email" type="email" placeholder="برای پاسخ بهتر"></div>
-  <div><label for="type">نوع سایت</label>
-    <select id="type" name="type">
-      <option>سایت معرفی کسب‌وکار</option>
-      <option>فروشگاه اینترنتی</option>
-      <option>صفحه فرود</option>
-      <option>سایر</option>
-    </select>
+<header>
+<div class="wrap nav">
+  <a class="brand" href="#home">NIVARO<span>WEB STUDIO</span></a>
+  <nav><a href="#services">خدمات</a><a href="#work">نمونه‌کار</a><a href="#builder">درباره اهورا</a><a href="#pricing">تعرفه‌ها</a><a href="#comments">نظرات</a><a href="#faq">سوالات</a><a href="#contact">تماس</a></nav>
+  <div class="nav-actions">
+    <a class="btn outline sm" href="#contact">مشاوره رایگان</a>
+    <a class="btn sm" href="#contact">سفارش سایت</a>
   </div>
-  <div><label for="details">توضیحات پروژه</label><textarea id="details" name="details" required placeholder="چه سایتی نیاز دارید؟"></textarea></div>
-  <button class="btn" type="submit">ارسال درخواست</button>
-  <div class="hint">با زدن دکمه، درخواستت ارسال می‌شود و به ایمیل ما می‌رسد.</div>
-</form>
-</div></div></section>
+</div>
+</header>
+
+<main id="home">
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow">طراحی سایت · هویت دیجیتال · تجربه کاربری</span>
+      <h1>حضور آنلاین کسب‌وکارت را<br><em>حرفه‌ای</em> شروع کن.</h1>
+      <p>در NIVARO برای کسب‌وکارهای کوچک و متوسط سایت‌هایی سریع، مدرن و سازگار با موبایل طراحی می‌کنیم؛ از سایت معرفی تا فروشگاه اینترنتی. تمرکز ما روی نتیجه است: دیده شدن، اعتمادسازی و جذب مشتری.</p>
+      <div class="actions">
+        <a class="btn" href="#contact">شروع پروژه</a>
+        <a class="btn outline" href="#" id="openWorkBtn">مشاهده نمونه‌کارها</a>
+      </div>
+      <div class="hero-stats">
+        <div><strong>۱۰۰٪</strong><span>تحویل به‌موقع</span></div>
+        <div><strong>۷ روز</strong><span>پشتیبانی رایگان</span></div>
+        <div><strong>موبایل‌فرست</strong><span>سازگار با همه دستگاه‌ها</span></div>
+      </div>
+    </div>
+    <div class="mock">
+      <div class="mock-top"><i></i><i></i><i></i></div>
+      <div class="mock-body">
+        <div class="mock-logo">NIVARO</div>
+        <div class="mock-banner">استایل خاص،<br>با کیفیت بالا</div>
+        <div class="mock-products"><div></div><div></div><div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <div class="wrap trust-grid">
+    <div class="trust-item"><strong>طراحی اختصاصی</strong><span>هر پروژه منحصربه‌فرد</span></div>
+    <div class="trust-item"><strong>سرعت بالا</strong><span>بهینه برای گوگل</span></div>
+    <div class="trust-item"><strong>سازگار با موبایل</strong><span>تجربه‌ی عالی در هر دستگاه</span></div>
+    <div class="trust-item"><strong>پشتیبانی واقعی</strong><span>پاسخگویی مستقیم</span></div>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="wrap">
+    <h2 class="section-title">چه سایتی برای <em>کسب‌وکارت</em> مناسب است؟</h2>
+    <p class="lead">هر پروژه با نیاز و بودجه‌ی خودش طراحی می‌شود؛ این سه مسیر رایج‌ترین انتخاب‌ها هستند.</p>
+    <div class="cards fade-in">
+      <article class="card">
+        <div class="num">۰۱</div>
+        <h3>سایت معرفی کسب‌وکار</h3>
+        <p>برای شرکت‌ها، مغازه‌ها و مشاغل خدماتی. معرفی خدمات، درباره ما، اطلاعات تماس و مسیرهای ارتباطی — همه در یک سایت سریع و قابل‌اعتماد.</p>
+      </article>
+      <article class="card">
+        <div class="num">۰۲</div>
+        <h3>فروشگاه اینترنتی</h3>
+        <p>صفحه محصولات، دسته‌بندی، جست‌وجو و سبد خرید. امکانات نهایی دقیقاً بر اساس نیاز پروژه و تعداد محصولات تعیین می‌شود.</p>
+      </article>
+      <article class="card">
+        <div class="num">۰۳</div>
+        <h3>صفحه فرود تبلیغاتی</h3>
+        <p>یک صفحه‌ی سریع و متمرکز برای معرفی محصول، کمپین یا دریافت درخواست مشتری. مناسب برای تبلیغات اینستاگرام و گوگل.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- PORTFOLIO -->
+<section class="portfolio" id="work">
+  <div class="wrap">
+    <h2 class="section-title">نمونه <em>طراحی</em></h2>
+    <p class="lead">چند نمونه از سبک طراحی ما. هر پروژه بر اساس هویت برند شما سفارشی‌سازی می‌شود. روی هر کارت کلیک کنید تا پیش‌نمایش کامل را ببینید.</p>
+    <div class="cards fade-in">
+      <div class="sample" data-demo="shop">
+        <div class="sample-head"><span>نمونه فروشگاهی</span><span>۰۱</span></div>
+        <div class="sample-preview"><h3>استایل خودت را زندگی کن.</h3><span>فروشگاه لباس</span></div>
+        <div class="sample-foot">صفحه اصلی فروشگاه لباس با طراحی واکنش‌گرا و تجربه خرید ساده</div>
+      </div>
+      <div class="sample" data-demo="corp">
+        <div class="sample-head"><span>نمونه شرکتی</span><span>۰۲</span></div>
+        <div class="sample-preview" style="background-image:linear-gradient(100deg,rgba(10,14,20,.85),rgba(10,14,20,.25)),url('https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=900&q=80')"><h3>کار شما، حرفه‌ای‌تر.</h3><span>سایت شرکتی</span></div>
+        <div class="sample-foot">معرفی خدمات، اعتمادسازی و راه‌های ارتباطی در یک ساختار شفاف</div>
+      </div>
+      <div class="sample" data-demo="personal">
+        <div class="sample-head"><span>نمونه شخصی</span><span>۰۳</span></div>
+        <div class="sample-preview" style="background-image:linear-gradient(100deg,rgba(10,14,20,.85),rgba(10,14,20,.25)),url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=900&q=80')"><h3>ایده‌ات را آنلاین کن.</h3><span>نمونه‌کار شخصی</span></div>
+        <div class="sample-foot">رزومه و معرفی خدمات فریلنسری با طراحی مینیمال و خوانا</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BUILDER -->
+<section id="builder">
+  <div class="wrap builder-grid">
+    <div class="builder-card fade-in">
+      <div class="builder-avatar">ا</div>
+      <h3>اهورا</h3>
+      <p class="role">بنیان‌گذار و طراح · NIVARO Studio</p>
+      <p>طراح وب و عاشق ساختن چیزهای ساده و کاربردی. اینجا نیستم که ادعا کنم بهترینم؛ اینجام که با دقت، صداقت و تعهد، سایت کسب‌وکارت رو بسازم.</p>
+    </div>
+    <div class="builder-text">
+      <h2 class="section-title">درباره <em>اهورا</em></h2>
+      <p>سلام، من اهورا هستم. NIVARO رو با یک هدف ساده شروع کردم: کمک به کسب‌وکارهای کوچک که می‌خوان آنلاین دیده بشن، بدون پیچیدگی و هزینه‌های اضافی.</p>
+      <p>من به جای قالب‌های آماده، هر پروژه رو از صفر و بر اساس نیاز واقعی مشتری طراحی می‌کنم. باور دارم یک سایت خوب باید ساده، سریع و صادق باشه — نه پر از افکت‌های بی‌مورد.</p>
+      <ul class="values">
+        <li>ارتباط مستقیم و بدون واسطه با خودم</li>
+        <li>تعهد به زمان تحویل توافق‌شده</li>
+        <li>طراحی اختصاصی، نه قالب آماده</li>
+        <li>پشتیبانی واقعی بعد از تحویل</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing" id="pricing">
+  <div class="wrap">
+    <h2 class="section-title">تعرفه‌های <em>شفاف</em></h2>
+    <p class="lead">قیمت‌ها بر اساس پیچیدگی پروژه تعیین می‌شوند. برای دریافت قیمت دقیق، فرم تماس را پر کنید.</p>
+    <div class="price-grid fade-in">
+      <div class="price-card">
+        <h3>صفحه فرود</h3>
+        <p class="desc">مناسب کمپین و تبلیغات</p>
+        <div class="price"><span>شروع از</span><strong>۴۵۰ تومان</strong></div>
+        <ul class="price-features">
+          <li>یک صفحه کامل و سریع</li>
+          <li>فرم تماس فعال</li>
+          <li>سازگار با موبایل</li>
+          <li>تحویل سریع</li>
+          <li class="no">چند صفحه‌ای</li>
+        </ul>
+        <a class="btn outline" href="#contact">سفارش دهید</a>
+      </div>
+      <div class="price-card featured">
+        <h3>سایت معرفی کسب‌وکار</h3>
+        <p class="desc">پرفروش‌ترین انتخاب</p>
+        <div class="price"><span>شروع از</span><strong>۶۹۹ تومان</strong></div>
+        <ul class="price-features">
+          <li>تا ۵ صفحه اختصاصی</li>
+          <li>فرم تماس و نقشه</li>
+          <li>سازگار با موبایل</li>
+          <li>بهینه برای گوگل</li>
+          <li>پشتیبانی ۷ روزه</li>
+        </ul>
+        <a class="btn" href="#contact">سفارش دهید</a>
+      </div>
+      <div class="price-card">
+        <h3>فروشگاه اینترنتی</h3>
+        <p class="desc">برای فروش آنلاین</p>
+        <div class="price"><span>شروع از</span><strong>۱ تومان</strong></div>
+        <ul class="price-features">
+          <li>صفحه محصولات و دسته‌بندی</li>
+          <li>سبد خرید و جست‌وجو</li>
+          <li>سازگار با موبایل</li>
+          <li>پنل مدیریت سفارش</li>
+          <li>پشتیبانی گسترده</li>
+        </ul>
+        <a class="btn outline" href="#contact">سفارش دهید</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STEPS -->
+<section class="steps" id="process">
+  <div class="wrap">
+    <h2 class="section-title">مراحل انجام <em>پروژه</em></h2>
+    <p class="lead">از اولین گفت‌وگو تا تحویل نهایی، مسیر روشن و شفاف است.</p>
+    <div class="cards fade-in">
+      <article class="card"><div class="num">۰۱</div><h3>نیازسنجی</h3><p>درباره هدف سایت، مخاطب و امکانات موردنیاز صحبت می‌کنیم تا دقیقاً بدانیم چه چیزی به کسب‌وکار شما کمک می‌کند.</p></article>
+      <article class="card"><div class="num">۰۲</div><h3>طراحی و بازبینی</h3><p>طرح اولیه آماده می‌شود و بازخورد شما مرحله‌به‌مرحله اعمال می‌شود تا نتیجه دقیقاً مطابق انتظارتان باشد.</p></article>
+      <article class="card"><div class="num">۰۳</div><h3>تحویل و انتشار</h3><p>پس از تأیید نهایی، فایل‌ها و روش انتشار سایت تحویل داده می‌شود و در صورت نیاز، راهنمایی لازم انجام می‌گیرد.</p></article>
+    </div>
+  </div>
+</section>
+
+<!-- COMMENTS -->
+<section class="comments" id="comments">
+  <div class="wrap">
+    <h2 class="section-title">نظرات <em>کاربران</em></h2>
+    <p class="lead">نظر شما برای ما ارزشمند است. بعد از همکاری، تجربه‌ات را اینجا بنویس.</p>
+    <div class="comment-list fade-in">
+      <div class="comment-card">
+        <div class="comment-avatar">م</div>
+        <div class="comment-body">
+          <div class="comment-head"><strong>مهدی</strong><span>۲ روز پیش</span></div>
+          <p class="comment-text">صفحه فرود خیلی خوبی برام طراحی شد. سرعت کار و ارتباط مستقیم واقعاً عالی بود. ممنون!</p>
+        </div>
+      </div>
+      <div class="comment-card">
+        <div class="comment-avatar">س</div>
+        <div class="comment-body">
+          <div class="comment-head"><strong>سارا</strong><span>۱ هفته پیش</span></div>
+          <p class="comment-text">از همون اول صادقانه گفت چه چیزی ممکنه و چه چیزی نه. نتیجه دقیقاً همونی بود که توافق کردیم.</p>
+        </div>
+      </div>
+      <div class="comment-card">
+        <div class="comment-avatar">ر</div>
+        <div class="comment-body">
+          <div class="comment-head"><strong>رضا</strong><span>۲ هفته پیش</span></div>
+          <p class="comment-text">برای معرفی کسب‌وکارم سایت سفارش دادم. طراحی ساده و شیک بود و خیلی سریع تحویل داد.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="comment-form">
+      <h3>نظرت رو بنویس</h3>
+      <p>اگر با ما همکاری کردی، خوشحال می‌شیم تجربه‌ات رو بشنویم.</p>
+      <form id="commentForm" action="https://formspree.io/f/myeeqeqn" method="POST">
+        <input type="hidden" name="_subject" value="نظر جدید در سایت NIVARO">
+        <input type="hidden" name="form_type" value="comment">
+        <div><label for="c-name">نام</label><input id="c-name" name="name" required placeholder="نام شما"></div>
+        <div><label for="c-text">نظر شما</label><textarea id="c-text" name="comment" required placeholder="تجربه‌ات رو بنویس..."></textarea></div>
+        <button class="btn" type="submit">ارسال نظر</button>
+        <div class="hint">نظرت پس از تأیید در سایت نمایش داده می‌شود.</div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="wrap faq-grid">
+    <div>
+      <h2 class="section-title">سوالات <em>متداول</em></h2>
+      <p class="lead">اگر جواب سوالی رو اینجا پیدا نکردی، از طریق فرم تماس بپرس.</p>
+    </div>
+    <div class="faq-list">
+      <details class="faq-item"><summary>طراحی سایت چقدر زمان می‌برد؟</summary><p>بستگی به نوع پروژه دارد؛ صفحه فرود معمولاً چند روز، سایت معرفی حدود ۱ تا ۲ هفته و فروشگاه اینترنتی بیشتر زمان می‌برد. زمان دقیق پس از نیازسنجی اعلام می‌شود.</p></details>
+      <details class="faq-item"><summary>آیا سایت من با موبایل سازگار خواهد بود؟</summary><p>بله. همه‌ی سایت‌های ما به صورت واکنش‌گرا (Responsive) طراحی می‌شوند و در موبایل، تبلت و دسکتاپ به درستی نمایش داده می‌شوند.</p></details>
+      <details class="faq-item"><summary>هزینه طراحی سایت چقدر است؟</summary><p>قیمت بر اساس پیچیدگی پروژه، تعداد صفحات و امکانات تعیین می‌شود. در بخش تعرفه‌ها بازه‌ی قیمتی ذکر شده و برای قیمت دقیق، فرم تماس را پر کنید.</p></details>
+      <details class="faq-item"><summary>آیا بعد از تحویل پشتیبانی دارم؟</summary><p>بله. هر پروژه شامل یک دوره پشتیبانی رایگان است. برای دوره‌های بیشتر، توافق جداگانه انجام می‌شود.</p></details>
+      <details class="faq-item"><summary>چه اطلاعاتی باید برای شروع آماده کنم؟</summary><p>کافی است هدفت از سایت، مخاطب و خدماتت را بدانی. بقیه‌ی موارد در جلسه نیازسنجی مشخص می‌شود.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="wrap contact-grid">
+    <div>
+      <h2 class="section-title">درباره پروژه‌ات <em>حرف بزنیم.</em></h2>
+      <p class="lead">فرم را پر کن؛ درخواستت مستقیم به دست من می‌رسد و در اولین فرصت پاسخ می‌دهم.</p>
+      <div class="contact-box">
+        <h3>NIVARO Web Studio</h3>
+        <p>طراحی سایت برای کسب‌وکارهایی که می‌خواهند آنلاین دیده شوند و اعتماد مشتری را جلب کنند.</p>
+        <div class="contact-info">
+          <a href="https://ble.ir/imkaizen" target="_blank" rel="noopener noreferrer"><span>💬</span> بله: @imkaizen</a>
+        </div>
+      </div>
+    </div>
+    <div class="contact-box">
+      <form id="contactForm" action="https://formspree.io/f/myeeqeqn" method="POST">
+        <input type="hidden" name="_subject" value="درخواست جدید از سایت NIVARO">
+        <input type="hidden" name="form_type" value="order">
+        <div><label for="name">نام</label><input id="name" name="name" required placeholder="نام شما"></div>
+        <div><label for="email">ایمیل (اختیاری)</label><input id="email" name="email" type="email" placeholder="برای پاسخ بهتر"></div>
+        <div><label for="type">نوع سایت</label>
+          <select id="type" name="type">
+            <option>سایت معرفی کسب‌وکار</option>
+            <option>فروشگاه اینترنتی</option>
+            <option>صفحه فرود</option>
+            <option>سایر</option>
+          </select>
+        </div>
+        <div><label for="details">توضیحات پروژه</label><textarea id="details" name="details" required placeholder="چه سایتی نیاز دارید؟ کمی درباره کسب‌وکار و هدفت بنویس."></textarea></div>
+        <button class="btn" type="submit">ارسال درخواست</button>
+        <div class="hint">با زدن دکمه، درخواستت ارسال می‌شود و به ایمیل من می‌رسد.</div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-band">
+  <div class="wrap">
+    <h2>آماده‌ای کسب‌وکارت را آنلاین کنی؟</h2>
+    <p>همین حالا درخواستت را ارسال کن؛ در اولین فرصت با تو تماس می‌گیرم و درباره‌ی پروژه‌ات صحبت می‌کنیم.</p>
+    <a class="btn" href="#contact">شروع پروژه</a>
+  </div>
+</section>
 </main>
-<footer><div class="wrap" style="display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap"><span>© 2026 NIVARO Web Studio</span><span>طراحی سایت برای کسب‌وکارها</span></div></footer><div class="toast" id="toast"></div>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <div class="brand" style="font-size:20px">NIVARO<span>WEB STUDIO</span></div>
+        <p>طراحی سایت برای کسب‌وکارهایی که می‌خواهند آنلاین دیده شوند و اعتماد مشتری را جلب کنند.</p>
+      </div>
+      <div class="foot-col">
+        <h4>لینک‌های سریع</h4>
+        <a href="#services">خدمات</a>
+        <a href="#work">نمونه‌کار</a>
+        <a href="#builder">درباره اهورا</a>
+        <a href="#pricing">تعرفه‌ها</a>
+        <a href="#comments">نظرات</a>
+        <a href="#faq">سوالات متداول</a>
+      </div>
+      <div class="foot-col">
+        <h4>ارتباط</h4>
+        <a href="#contact">فرم تماس</a>
+        <a href="https://ble.ir/imkaizen" target="_blank" rel="noopener noreferrer">بله: @imkaizen</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 NIVARO Web Studio — ساخته‌شده توسط اهورا</span>
+      <span>طراحی سایت برای کسب‌وکارها · پاسخگویی از طریق بله</span>
+    </div>
+  </div>
+</footer>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="workModal">
+  <div class="modal">
+    <div class="modal-head">
+      <h3>نمونه‌کارهای NIVARO</h3>
+      <button class="modal-close" id="closeModal" aria-label="بستن">×</button>
+    </div>
+    <div class="modal-body">
+      <div class="demo-grid">
+        <div class="demo-item">
+          <div class="demo-item-head"><span>نمونه فروشگاهی · فروشگاه لباس</span><span>۰۱</span></div>
+          <div class="demo-preview shop">
+            <h4>استایل خودت را زندگی کن.</h4>
+            <p>صفحه اصلی فروشگاه لباس با طراحی واکنش‌گرا، دسته‌بندی محصولات و تجربه خرید ساده.</p>
+            <div class="demo-tags"><span>فروشگاه</span><span>واکنش‌گرا</span><span>سبد خرید</span></div>
+          </div>
+        </div>
+        <div class="demo-item">
+          <div class="demo-item-head"><span>نمونه شرکتی · شرکت خدماتی</span><span>۰۲</span></div>
+          <div class="demo-preview corp">
+            <h4>کار شما، حرفه‌ای‌تر.</h4>
+            <p>معرفی خدمات، اعتمادسازی و راه‌های ارتباطی در یک ساختار شفاف و قابل‌اعتماد.</p>
+            <div class="demo-tags"><span>شرکتی</span><span>معرفی خدمات</span><span>فرم تماس</span></div>
+          </div>
+        </div>
+        <div class="demo-item">
+          <div class="demo-item-head"><span>نمونه شخصی · فریلنسر</span><span>۰۳</span></div>
+          <div class="demo-preview personal">
+            <h4>ایده‌ات را آنلاین کن.</h4>
+            <p>رزومه و معرفی خدمات فریلنسری با طراحی مینیمال، خوانا و سریع.</p>
+            <div class="demo-tags"><span>شخصی</span><span>رزومه</span><span>مینیمال</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <script>
+// Modal
+const modal = document.getElementById('workModal');
+const openBtn = document.getElementById('openWorkBtn');
+const closeBtn = document.getElementById('closeModal');
+const samples = document.querySelectorAll('.sample[data-demo]');
+
+function openModal(){ modal.classList.add('active'); document.body.style.overflow='hidden'; }
+function closeModal(){ modal.classList.remove('active'); document.body.style.overflow=''; }
+
+openBtn.addEventListener('click', (e)=>{ e.preventDefault(); openModal(); });
+closeBtn.addEventListener('click', closeModal);
+modal.addEventListener('click', (e)=>{ if(e.target === modal) closeModal(); });
+document.addEventListener('keydown', (e)=>{ if(e.key === 'Escape') closeModal(); });
+samples.forEach(s => s.addEventListener('click', openModal));
+
+// Contact form
 document.getElementById('contactForm').addEventListener('submit', async function(e) {
   e.preventDefault();
   const form = e.target;
   const btn = form.querySelector('button[type="submit"]');
   const originalText = btn.textContent;
-  btn.disabled = true;
-  btn.textContent = 'در حال ارسال...';
-
+  btn.disabled = true; btn.textContent = 'در حال ارسال...';
   try {
-    const response = await fetch(form.action, {
-      method: 'POST',
-      body: new FormData(form),
-      headers: { 'Accept': 'application/json' }
-    });
+    const response = await fetch(form.action, { method:'POST', body:new FormData(form), headers:{'Accept':'application/json'} });
     if (response.ok) {
-      alert('✅ درخواست شما با موفقیت ارسال شد. به زودی با شما تماس می‌گیریم.');
+      alert('✅ درخواست شما با موفقیت ارسال شد. به زودی با شما تماس می‌گیرم.');
       form.reset();
     } else {
-      alert('❌ خطایی رخ داد. لطفاً دوباره تلاش کنید یا از طریق روبیکا پیام بدهید.');
+      alert('❌ خطایی رخ داد. لطفاً دوباره تلاش کنید یا از طریق بله پیام بدهید.');
     }
   } catch (error) {
-    alert('❌ ارتباط برقرار نشد. لطفاً اینترنت خود را بررسی کنید یا از طریق روبیکا پیام بدهید.');
+    alert('❌ ارتباط برقرار نشد. لطفاً اینترنت خود را بررسی کنید یا از طریق بله پیام بدهید.');
   } finally {
-    btn.disabled = false;
-    btn.textContent = originalText;
+    btn.disabled = false; btn.textContent = originalText;
   }
 });
+
+// Comment form
+document.getElementById('commentForm').addEventListener('submit', async function(e) {
+  e.preventDefault();
+  const form = e.target;
+  const btn = form.querySelector('button[type="submit"]');
+  const originalText = btn.textContent;
+  btn.disabled = true; btn.textContent = 'در حال ارسال...';
+  try {
+    const response = await fetch(form.action, { method:'POST', body:new FormData(form), headers:{'Accept':'application/json'} });
+    if (response.ok) {
+      alert('✅ نظر شما ارسال شد. پس از تأیید در سایت نمایش داده می‌شود. ممنون!');
+      form.reset();
+    } else {
+      alert('❌ خطایی رخ داد. لطفاً دوباره تلاش کنید.');
+    }
+  } catch (error) {
+    alert('❌ ارتباط برقرار نشد. لطفاً اینترنت خود را بررسی کنید.');
+  } finally {
+    btn.disabled = false; btn.textContent = originalText;
+  }
+});
+
+// Fade-in
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+}, { threshold: 0.15 });
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 </script>
 </body></html>
