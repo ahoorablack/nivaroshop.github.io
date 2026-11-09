@@ -1,125 +1,8 @@
-<!doctype html>
-<html lang="fa" dir="rtl">
-<head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>پنل مدیریت | NIVARO</title>
-<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-<style>
-:root{--bg:#0a0e14;--panel:#121821;--panel-2:#161d28;--text:#e8edf5;--muted:#8b96a8;--line:#1e2634;--accent:#2dd4bf;--accent-2:#14b8a6}
-*{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--text);font-family:'Vazirmatn',Tahoma,sans-serif;display:flex;align-items:center;justify-content:center;min-height:100vh;background-image:radial-gradient(ellipse at 80% -10%,rgba(45,212,191,.08),transparent 50%)}
-.login-box{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:40px;width:min(420px,90%);text-align:center;box-shadow:0 20px 60px -20px rgba(0,0,0,.8)}
-h2{margin:0 0 10px;color:var(--accent);font-size:24px}
-p{color:var(--muted);font-size:14px;margin-bottom:25px}
-input, select{width:100%;padding:14px;border-radius:10px;border:1px solid var(--line);background:#0e131b;color:var(--text);font-family:inherit;font-size:15px;margin-bottom:15px;text-align:center;transition:all 0.2s}
-input:focus, select:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 4px rgba(45,212,191,.12)}
-button{width:100%;padding:14px;border-radius:10px;border:none;background:var(--accent);color:#0a0e14;font-weight:800;font-size:15px;cursor:pointer;font-family:inherit;transition:.3s;margin-top:5px}
-button:hover{background:var(--accent-2);transform:translateY(-2px)}
-#error{color:#ef4444;font-size:13px;margin-top:15px;display:none;background:rgba(239,68,68,.1);padding:10px;border-radius:8px;border:1px solid rgba(239,68,68,.2)}
-
-/* پنل ادمین */
-#dashboard{display:none;width:min(900px,95%);margin:40px auto;padding-bottom:40px}
-.dash-header{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--line);padding-bottom:20px;margin-bottom:30px}
-.dash-header h1{font-size:22px;color:var(--accent);margin:0}
-.logout-btn{background:transparent;border:1px solid #ef4444;color:#ef4444;padding:8px 16px;border-radius:8px;cursor:pointer;font-family:inherit;font-weight:600;width:auto}
-.logout-btn:hover{background:#ef4444;color:white}
-.dash-card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:25px;margin-bottom:20px}
-.dash-card h3{margin:0 0 15px;color:var(--text);font-size:18px}
-.dash-card p{color:var(--muted);font-size:14px;line-height:1.8}
-.dash-card a{color:var(--accent);text-decoration:none;font-weight:600}
-.dash-card a:hover{text-decoration:underline}
-
-/* جدول و فرم سفارشات */
-.order-form{display:grid;grid-template-columns:1fr 1fr 1fr auto;gap:10px;margin-bottom:20px;align-items:end}
-.order-form input, .order-form select{margin-bottom:0;text-align:right;padding:12px;font-size:14px}
-.order-form button{width:auto;margin-top:0;padding:12px 20px;white-space:nowrap}
-table{width:100%;border-collapse:collapse;margin-top:10px}
-th, td{padding:12px 15px;text-align:right;border-bottom:1px solid var(--line);font-size:14px}
-th{color:var(--accent);font-weight:700;background:var(--panel-2);border-radius:8px 8px 0 0}
-tr:hover td{background:rgba(255,255,255,.02)}
-.status-badge{padding:4px 10px;border-radius:20px;font-size:12px;font-weight:700;display:inline-block}
-.status-pending{background:rgba(245,158,11,.15);color:#f59e0b;border:1px solid rgba(245,158,11,.3)}
-.status-doing{background:rgba(45,212,191,.15);color:var(--accent);border:1px solid rgba(45,212,191,.3)}
-.status-done{background:rgba(16,185,129,.15);color:#10b981;border:1px solid rgba(16,185,129,.3)}
-.action-btn{background:transparent;border:none;cursor:pointer;font-size:16px;padding:5px;transition:0.2s;width:auto;margin:0}
-.action-btn:hover{transform:scale(1.2)}
-.delete-btn{color:#ef4444}
-.status-btn{color:var(--accent)}
-.empty-state{text-align:center;padding:30px;color:var(--muted);font-size:14px}
-</style>
-</head>
-<body>
-
-<!-- صفحه لاگین -->
-<div id="loginView" class="login-box">
-  <h2>🔐 ورود به پنل مدیریت</h2>
-  <p>لطفاً نام کاربری و رمز عبور خود را وارد کنید.</p>
-  <form id="loginForm">
-    <input type="text" id="userInput" placeholder="نام کاربری..." required autocomplete="username">
-    <input type="password" id="passInput" placeholder="رمز عبور..." required autocomplete="current-password">
-    <button type="submit">ورود</button>
-    <div id="error">❌ نام کاربری یا رمز عبور اشتباه است!</div>
-  </form>
-</div>
-
-<!-- پنل ادمین (بعد از لاگین) -->
-<div id="dashboard">
-  <div class="dash-header">
-    <h1>👋 خوش آمدی اهورا</h1>
-    <button class="logout-btn" onclick="logout()">خروج</button>
-  </div>
-
-  <!-- بخش مدیریت سفارش‌ها -->
-  <div class="dash-card">
-    <h3>📦 مدیریت سفارش‌ها</h3>
-    <p style="margin-bottom:15px;font-size:13px;">سفارش‌های جدید را اینجا ثبت کن. وضعیت آن‌ها را تغییر بده تا بدانی روی کدام پروژه کار می‌کنی.</p>
-    
-    <form class="order-form" id="orderForm">
-      <input type="text" id="orderName" placeholder="نام مشتری" required>
-      <select id="orderType">
-        <option>صفحه فرود</option>
-        <option>معرفی کسب‌وکار</option>
-        <option>فروشگاه اینترنتی</option>
-        <option>سایر</option>
-      </select>
-      <input type="text" id="orderPrice" placeholder="مبلغ (مثلاً ۶۹۹)" required>
-      <button type="submit">➕ افزودن</button>
-    </form>
-
-    <table id="ordersTable">
-      <thead>
-        <tr>
-          <th>نام مشتری</th>
-          <th>نوع پروژه</th>
-          <th>مبلغ</th>
-          <th>وضعیت</th>
-          <th>عملیات</th>
-        </tr>
-      </thead>
-      <tbody id="ordersBody">
-        <!-- سفارش‌ها اینجا لود می‌شوند -->
-      </tbody>
-    </table>
-  </div>
-
-  <div class="dash-card">
-    <h3>📬 پیام‌های دریافتی (سفارش‌ها و نظرات)</h3>
-    <p>تمام پیام‌هایی که از فرم‌های سایت ارسال می‌شوند، به ایمیل ثبت‌شده در Formspree می‌روند. برای دیدن آن‌ها:</p>
-    <p>👉 <a href="https://mail.google.com" target="_blank">ورود به جیمیل</a></p>
-  </div>
-
-  <div class="dash-card">
-    <h3>💬 پشتیبانی آنلاین (Tawk.to)</h3>
-    <p>برای دیدن چت‌های زنده و پاسخ به مشتریان:</p>
-    <p>👉 <a href="https://dashboard.tawk.to" target="_blank">ورود به پنل Tawk.to</a></p>
-  </div>
-</div>
-
-<script>
 // ⚠️ نام کاربری و رمز عبور خودت را اینجا تغییر بده!
 const ADMIN_USERNAME = "ahoora";  
 const ADMIN_PASSWORD = "Niv@ro#1405"; 
 const LOGIN_KEY = "nivaro_admin_logged_in";
+const ORDERS_KEY = "nivaro_orders"; // 👈 این خط باید اینجا باشه (قبل از استفاده)
 
 // --- بخش لاگین ---
 if (localStorage.getItem(LOGIN_KEY) === "true") {
@@ -144,7 +27,7 @@ document.getElementById('loginForm').addEventListener('submit', function(e) {
 function showDashboard() {
   document.getElementById('loginView').style.display = 'none';
   document.getElementById('dashboard').style.display = 'block';
-  renderOrders();
+  renderOrders(); // حالا ORDERS_KEY تعریف شده و خطا نمیده
 }
 
 function logout() {
@@ -154,8 +37,6 @@ function logout() {
 }
 
 // --- بخش مدیریت سفارش‌ها ---
-const ORDERS_KEY = "nivaro_orders";
-
 function getOrders() {
   const data = localStorage.getItem(ORDERS_KEY);
   return data ? JSON.parse(data) : [];
@@ -188,8 +69,7 @@ function renderOrders() {
   }
 
   let html = "";
-  // نمایش از جدیدترین به قدیمی‌ترین
-  orders.slice().reverse().forEach((order, index) => {
+  orders.slice().reverse().forEach((order) => {
     let statusHtml = "";
     let statusText = "";
     if(order.status === "pending") { statusHtml = "status-pending"; statusText = "⏳ در انتظار"; }
@@ -231,7 +111,3 @@ window.deleteOrder = function(id) {
     renderOrders();
   }
 }
-</script>
-
-</body>
-</html>
