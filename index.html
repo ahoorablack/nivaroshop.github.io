@@ -4,7 +4,6 @@
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="NIVARO Studio — طراحی سایت حرفه‌ای برای کسب‌وکارها">
 <title>NIVARO Studio | طراحی سایت</title>
-<!-- فاوآیکون اینجا اضافه شد -->
 <link rel="icon" type="image/png" href="favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -120,8 +119,17 @@ section{padding:86px 0}
 .values li{display:flex;gap:12px;align-items:flex-start;font-size:14px;color:#c8d0dc;font-weight:500}
 .values li::before{content:"✓";width:22px;height:22px;border-radius:50%;background:var(--accent-soft);color:var(--accent);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;flex-shrink:0;margin-top:3px;border:1px solid rgba(45,212,191,.3)}
 
+/* GUARANTEES (تعهدات ما) */
+.guarantees{background:var(--bg-2)}
+.guarantees-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.guarantee-card{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:30px;text-align:center;transition:all .3s ease;position:relative;overflow:hidden}
+.guarantee-card:hover{transform:translateY(-4px);border-color:var(--accent);box-shadow:0 20px 40px -20px rgba(0,0,0,.6), 0 0 30px -15px var(--accent-glow)}
+.guarantee-icon{width:60px;height:60px;border-radius:50%;background:var(--accent-soft);border:1px solid rgba(45,212,191,.3);display:flex;align-items:center;justify-content:center;font-size:26px;margin:0 auto 20px;color:var(--accent)}
+.guarantee-card h3{font-size:18px;margin-bottom:10px;color:var(--text)}
+.guarantee-card p{color:var(--muted);font-size:14px;line-height:1.9;margin:0}
+
 /* PRICING */
-.pricing{background:var(--bg-2)}
+.pricing{background:var(--bg);}
 .price-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;align-items:stretch}
 .price-card{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:32px;position:relative;transition:all .3s ease;display:flex;flex-direction:column}
 .price-card:hover{transform:translateY(-4px);box-shadow:0 24px 50px -25px rgba(0,0,0,.6);border-color:var(--line-2)}
@@ -141,15 +149,6 @@ section{padding:86px 0}
 
 /* STEPS */
 .steps .card{min-height:190px}
-
-/* GUARANTEES (تعهدات ما) */
-.guarantees{background:var(--bg-2)}
-.guarantees-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.guarantee-card{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:30px;text-align:center;transition:all .3s ease;position:relative;overflow:hidden}
-.guarantee-card:hover{transform:translateY(-4px);border-color:var(--accent);box-shadow:0 20px 40px -20px rgba(0,0,0,.6), 0 0 30px -15px var(--accent-glow)}
-.guarantee-icon{width:60px;height:60px;border-radius:50%;background:var(--accent-soft);border:1px solid rgba(45,212,191,.3);display:flex;align-items:center;justify-content:center;font-size:26px;margin:0 auto 20px;color:var(--accent)}
-.guarantee-card h3{font-size:18px;margin-bottom:10px;color:var(--text)}
-.guarantee-card p{color:var(--muted);font-size:14px;line-height:1.9;margin:0}
 
 /* COMMENTS */
 .comments{background:var(--bg-2)}
@@ -240,7 +239,7 @@ footer{background:var(--bg-2);color:var(--muted);padding:56px 0 28px;font-size:1
 <header>
 <div class="wrap nav">
   <a class="brand" href="#home">NIVARO<span>WEB STUDIO</span></a>
-  <nav><a href="#services">خدمات</a><a href="portfolio.html">نمونه‌کار</a><a href="#builder">درباره اهورا</a><a href="#pricing">تعرفه‌ها</a><a href="#comments">نظرات</a><a href="#faq">سوالات</a><a href="#contact">تماس</a></nav>
+  <nav><a href="#services">خدمات</a><a href="portfolio.html">نمونه‌کار</a><a href="#builder">درباره اهورا</a><a href="#guarantees">تعهدات</a><a href="#pricing">تعرفه‌ها</a><a href="#comments">نظرات</a><a href="#faq">سوالات</a><a href="#contact">تماس</a></nav>
   <div class="nav-actions">
     <a class="btn outline sm" href="#contact">مشاوره رایگان</a>
     <a class="btn sm" href="#contact">سفارش سایت</a>
@@ -360,6 +359,44 @@ footer{background:var(--bg-2);color:var(--muted);padding:56px 0 28px;font-size:1
   </div>
 </section>
 
+<!-- STEPS -->
+<section class="steps" id="process">
+  <div class="wrap">
+    <h2 class="section-title">مراحل انجام <em>پروژه</em></h2>
+    <p class="lead">از اولین گفت‌وگو تا تحویل نهایی، مسیر روشن و شفاف است.</p>
+    <div class="cards fade-in">
+      <article class="card"><div class="num">۰۱</div><h3>نیازسنجی</h3><p>درباره هدف سایت، مخاطب و امکانات موردنیاز صحبت می‌کنیم تا دقیقاً بدانیم چه چیزی به کسب‌وکار شما کمک می‌کند.</p></article>
+      <article class="card"><div class="num">۰۲</div><h3>طراحی و بازبینی</h3><p>طرح اولیه آماده می‌شود و بازخورد شما مرحله‌به‌مرحله اعمال می‌شود تا نتیجه دقیقاً مطابق انتظارتان باشد.</p></article>
+      <article class="card"><div class="num">۰۳</div><h3>تحویل و انتشار</h3><p>پس از تأیید نهایی، فایل‌ها و روش انتشار سایت تحویل داده می‌شود و در صورت نیاز، راهنمایی لازم انجام می‌گیرد.</p></article>
+    </div>
+  </div>
+</section>
+
+<!-- GUARANTEES (تعهدات ما) - منتقل شد به بالا -->
+<section class="guarantees" id="guarantees">
+  <div class="wrap">
+    <h2 class="section-title">تعهدات <em>ما</em></h2>
+    <p class="lead">ما فقط حرف نمی‌زنیم؛ این‌ها قول‌هایی هستند که به آن‌ها پایبندیم.</p>
+    <div class="guarantees-grid fade-in">
+      <div class="guarantee-card">
+        <div class="guarantee-icon">💰</div>
+        <h3>پرداخت مرحله‌ای</h3>
+        <p>۵۰٪ ابتدای پروژه و ۵۰٪ <strong>پس از تأیید و تحویل نهایی</strong>. خیال شما راحت است که پول کامل را بابت چیزی که ندیده‌اید، نمی‌دهید.</p>
+      </div>
+      <div class="guarantee-card">
+        <div class="guarantee-icon">⏰</div>
+        <h3>تعهد به زمان تحویل</h3>
+        <p>تاریخ تحویل دقیقاً در قرارداد مشخص می‌شود و ما به آن پایبندیم. اگر تأخیری پیش بیاید، از قبل اطلاع می‌دهیم.</p>
+      </div>
+      <div class="guarantee-card">
+        <div class="guarantee-icon">🛠️</div>
+        <h3>پشتیبانی رایگان</h3>
+        <p>هر پروژه شامل ۷ روز پشتیبانی رایگان بعد از تحویل است. اگر مشکلی پیش بیاید، در کنار شما هستیم.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- PRICING -->
 <section class="pricing" id="pricing">
   <div class="wrap">
@@ -404,44 +441,6 @@ footer{background:var(--bg-2);color:var(--muted);padding:56px 0 28px;font-size:1
           <li>پشتیبانی گسترده</li>
         </ul>
         <a class="btn outline" href="#contact">سفارش دهید</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- STEPS -->
-<section class="steps" id="process">
-  <div class="wrap">
-    <h2 class="section-title">مراحل انجام <em>پروژه</em></h2>
-    <p class="lead">از اولین گفت‌وگو تا تحویل نهایی، مسیر روشن و شفاف است.</p>
-    <div class="cards fade-in">
-      <article class="card"><div class="num">۰۱</div><h3>نیازسنجی</h3><p>درباره هدف سایت، مخاطب و امکانات موردنیاز صحبت می‌کنیم تا دقیقاً بدانیم چه چیزی به کسب‌وکار شما کمک می‌کند.</p></article>
-      <article class="card"><div class="num">۰۲</div><h3>طراحی و بازبینی</h3><p>طرح اولیه آماده می‌شود و بازخورد شما مرحله‌به‌مرحله اعمال می‌شود تا نتیجه دقیقاً مطابق انتظارتان باشد.</p></article>
-      <article class="card"><div class="num">۰۳</div><h3>تحویل و انتشار</h3><p>پس از تأیید نهایی، فایل‌ها و روش انتشار سایت تحویل داده می‌شود و در صورت نیاز، راهنمایی لازم انجام می‌گیرد.</p></article>
-    </div>
-  </div>
-</section>
-
-<!-- GUARANTEES (تعهدات ما) -->
-<section class="guarantees" id="guarantees">
-  <div class="wrap">
-    <h2 class="section-title">تعهدات <em>ما</em></h2>
-    <p class="lead">ما فقط حرف نمی‌زنیم؛ این‌ها قول‌هایی هستند که به آن‌ها پایبندیم.</p>
-    <div class="guarantees-grid fade-in">
-      <div class="guarantee-card">
-        <div class="guarantee-icon">💰</div>
-        <h3>پرداخت مرحله‌ای</h3>
-        <p>۵۰٪ ابتدای پروژه و ۵۰٪ <strong>پس از تأیید و تحویل نهایی</strong>. خیال شما راحت است که پول کامل را بابت چیزی که ندیده‌اید، نمی‌دهید.</p>
-      </div>
-      <div class="guarantee-card">
-        <div class="guarantee-icon">⏰</div>
-        <h3>تعهد به زمان تحویل</h3>
-        <p>تاریخ تحویل دقیقاً در قرارداد مشخص می‌شود و ما به آن پایبندیم. اگر تأخیری پیش بیاید، از قبل اطلاع می‌دهیم.</p>
-      </div>
-      <div class="guarantee-card">
-        <div class="guarantee-icon">🛠️</div>
-        <h3>پشتیبانی رایگان</h3>
-        <p>هر پروژه شامل ۷ روز پشتیبانی رایگان بعد از تحویل است. اگر مشکلی پیش بیاید، در کنار شما هستیم.</p>
       </div>
     </div>
   </div>
@@ -566,8 +565,8 @@ footer{background:var(--bg-2);color:var(--muted);padding:56px 0 28px;font-size:1
         <a href="#services">خدمات</a>
         <a href="portfolio.html">نمونه‌کار</a>
         <a href="#builder">درباره اهورا</a>
-        <a href="#pricing">تعرفه‌ها</a>
         <a href="#guarantees">تعهدات</a>
+        <a href="#pricing">تعرفه‌ها</a>
         <a href="#comments">نظرات</a>
         <a href="#faq">سوالات متداول</a>
       </div>
