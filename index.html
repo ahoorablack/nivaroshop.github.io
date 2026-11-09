@@ -87,7 +87,7 @@ section{padding:86px 0}
 
 /* PORTFOLIO */
 .portfolio{background:var(--bg-2)}
-.sample{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--panel);transition:all .3s ease;cursor:pointer}
+.sample{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--panel);transition:all .3s ease;cursor:pointer;display:block;text-decoration:none;color:inherit;}
 .sample:hover{transform:translateY(-4px);box-shadow:0 24px 50px -20px rgba(0,0,0,.6),0 0 40px -20px var(--accent-glow);border-color:var(--line-2)}
 .sample-head{padding:14px 18px;background:var(--panel-2);display:flex;justify-content:space-between;font-size:12px;font-weight:600;border-bottom:1px solid var(--line);color:var(--muted)}
 .sample-preview{padding:24px;min-height:170px;background:linear-gradient(100deg,rgba(10,14,20,.85),rgba(10,14,20,.25)),url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=900&q=80') center/cover;color:#fff;display:flex;flex-direction:column;justify-content:center}
@@ -195,29 +195,6 @@ footer{background:var(--bg-2);color:var(--muted);padding:56px 0 28px;font-size:1
 .foot-col a:hover{color:var(--accent)}
 .foot-bottom{border-top:1px solid var(--line);padding-top:22px;display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap;font-size:12px}
 
-/* MODAL */
-.modal-overlay{position:fixed;inset:0;background:rgba(5,8,12,.85);backdrop-filter:blur(8px);z-index:100;display:none;align-items:center;justify-content:center;padding:20px;opacity:0;transition:opacity .3s}
-.modal-overlay.active{display:flex;opacity:1}
-.modal{background:var(--panel);border:1px solid var(--line-2);border-radius:18px;max-width:900px;width:100%;max-height:90vh;overflow-y:auto;position:relative;transform:scale(.95);transition:transform .3s}
-.modal-overlay.active .modal{transform:scale(1)}
-.modal-head{display:flex;justify-content:space-between;align-items:center;padding:22px 26px;border-bottom:1px solid var(--line);position:sticky;top:0;background:var(--panel);z-index:2}
-.modal-head h3{margin:0;font-size:18px}
-.modal-close{background:var(--panel-2);border:1px solid var(--line);color:var(--text);width:36px;height:36px;border-radius:50%;cursor:pointer;font-size:18px;display:flex;align-items:center;justify-content:center;transition:all .2s}
-.modal-close:hover{background:var(--accent);color:#0a0e14;border-color:var(--accent)}
-.modal-body{padding:26px}
-.demo-grid{display:grid;grid-template-columns:1fr;gap:24px}
-.demo-item{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--bg-2)}
-.demo-item-head{padding:14px 18px;background:var(--panel-2);display:flex;justify-content:space-between;align-items:center;font-size:13px;font-weight:600;border-bottom:1px solid var(--line)}
-.demo-item-head span:last-child{color:var(--accent);font-weight:700}
-.demo-preview{padding:30px;min-height:220px;display:flex;flex-direction:column;justify-content:center;color:#fff;position:relative}
-.demo-preview.shop{background:linear-gradient(100deg,rgba(10,14,20,.88),rgba(10,14,20,.3)),url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1200&q=80') center/cover}
-.demo-preview.corp{background:linear-gradient(100deg,rgba(10,14,20,.88),rgba(10,14,20,.3)),url('https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1200&q=80') center/cover}
-.demo-preview.personal{background:linear-gradient(100deg,rgba(10,14,20,.88),rgba(10,14,20,.3)),url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80') center/cover}
-.demo-preview h4{font-size:28px;margin:0 0 8px;font-weight:800;line-height:1.3}
-.demo-preview p{font-size:13px;opacity:.9;margin:0;max-width:420px}
-.demo-tags{display:flex;gap:8px;margin-top:16px;flex-wrap:wrap}
-.demo-tags span{font-size:11px;padding:4px 10px;border-radius:20px;background:rgba(45,212,191,.15);border:1px solid rgba(45,212,191,.3);color:var(--accent);font-weight:600}
-
 /* Animations */
 .fade-in{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
 .fade-in.visible{opacity:1;transform:translateY(0)}
@@ -244,7 +221,7 @@ footer{background:var(--bg-2);color:var(--muted);padding:56px 0 28px;font-size:1
 <header>
 <div class="wrap nav">
   <a class="brand" href="#home">NIVARO<span>WEB STUDIO</span></a>
-  <nav><a href="#services">خدمات</a><a href="#work">نمونه‌کار</a><a href="#builder">درباره اهورا</a><a href="#pricing">تعرفه‌ها</a><a href="#comments">نظرات</a><a href="#faq">سوالات</a><a href="#contact">تماس</a></nav>
+  <nav><a href="#services">خدمات</a><a href="portfolio.html">نمونه‌کار</a><a href="#builder">درباره اهورا</a><a href="#pricing">تعرفه‌ها</a><a href="#comments">نظرات</a><a href="#faq">سوالات</a><a href="#contact">تماس</a></nav>
   <div class="nav-actions">
     <a class="btn outline sm" href="#contact">مشاوره رایگان</a>
     <a class="btn sm" href="#contact">سفارش سایت</a>
@@ -262,7 +239,7 @@ footer{background:var(--bg-2);color:var(--muted);padding:56px 0 28px;font-size:1
       <p>در NIVARO برای کسب‌وکارهای کوچک و متوسط سایت‌هایی سریع، مدرن و سازگار با موبایل طراحی می‌کنیم؛ از سایت معرفی تا فروشگاه اینترنتی. تمرکز ما روی نتیجه است: دیده شدن، اعتمادسازی و جذب مشتری.</p>
       <div class="actions">
         <a class="btn" href="#contact">شروع پروژه</a>
-        <a class="btn outline" href="#" id="openWorkBtn">مشاهده نمونه‌کارها</a>
+        <a class="btn outline" href="portfolio.html">مشاهده نمونه‌کارها</a>
       </div>
       <div class="hero-stats">
         <div><strong>۱۰۰٪</strong><span>تحویل به‌موقع</span></div>
@@ -320,23 +297,23 @@ footer{background:var(--bg-2);color:var(--muted);padding:56px 0 28px;font-size:1
 <section class="portfolio" id="work">
   <div class="wrap">
     <h2 class="section-title">نمونه <em>طراحی</em></h2>
-    <p class="lead">چند نمونه از سبک طراحی ما. هر پروژه بر اساس هویت برند شما سفارشی‌سازی می‌شود. روی هر کارت کلیک کنید تا پیش‌نمایش کامل را ببینید.</p>
+    <p class="lead">چند نمونه از سبک طراحی ما. برای دیدن دموهای زنده و کامل، روی هر کارت کلیک کنید.</p>
     <div class="cards fade-in">
-      <div class="sample" data-demo="shop">
+      <a href="portfolio.html" class="sample">
         <div class="sample-head"><span>نمونه فروشگاهی</span><span>۰۱</span></div>
         <div class="sample-preview"><h3>استایل خودت را زندگی کن.</h3><span>فروشگاه لباس</span></div>
         <div class="sample-foot">صفحه اصلی فروشگاه لباس با طراحی واکنش‌گرا و تجربه خرید ساده</div>
-      </div>
-      <div class="sample" data-demo="corp">
+      </a>
+      <a href="portfolio.html" class="sample">
         <div class="sample-head"><span>نمونه شرکتی</span><span>۰۲</span></div>
         <div class="sample-preview" style="background-image:linear-gradient(100deg,rgba(10,14,20,.85),rgba(10,14,20,.25)),url('https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=900&q=80')"><h3>کار شما، حرفه‌ای‌تر.</h3><span>سایت شرکتی</span></div>
         <div class="sample-foot">معرفی خدمات، اعتمادسازی و راه‌های ارتباطی در یک ساختار شفاف</div>
-      </div>
-      <div class="sample" data-demo="personal">
+      </a>
+      <a href="portfolio.html" class="sample">
         <div class="sample-head"><span>نمونه شخصی</span><span>۰۳</span></div>
         <div class="sample-preview" style="background-image:linear-gradient(100deg,rgba(10,14,20,.85),rgba(10,14,20,.25)),url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=900&q=80')"><h3>ایده‌ات را آنلاین کن.</h3><span>نمونه‌کار شخصی</span></div>
         <div class="sample-foot">رزومه و معرفی خدمات فریلنسری با طراحی مینیمال و خوانا</div>
-      </div>
+      </a>
     </div>
   </div>
 </section>
@@ -543,7 +520,7 @@ footer{background:var(--bg-2);color:var(--muted);padding:56px 0 28px;font-size:1
       <div class="foot-col">
         <h4>لینک‌های سریع</h4>
         <a href="#services">خدمات</a>
-        <a href="#work">نمونه‌کار</a>
+        <a href="portfolio.html">نمونه‌کار</a>
         <a href="#builder">درباره اهورا</a>
         <a href="#pricing">تعرفه‌ها</a>
         <a href="#comments">نظرات</a>
@@ -562,60 +539,7 @@ footer{background:var(--bg-2);color:var(--muted);padding:56px 0 28px;font-size:1
   </div>
 </footer>
 
-<!-- MODAL -->
-<div class="modal-overlay" id="workModal">
-  <div class="modal">
-    <div class="modal-head">
-      <h3>نمونه‌کارهای NIVARO</h3>
-      <button class="modal-close" id="closeModal" aria-label="بستن">×</button>
-    </div>
-    <div class="modal-body">
-      <div class="demo-grid">
-        <div class="demo-item">
-          <div class="demo-item-head"><span>نمونه فروشگاهی · فروشگاه لباس</span><span>۰۱</span></div>
-          <div class="demo-preview shop">
-            <h4>استایل خودت را زندگی کن.</h4>
-            <p>صفحه اصلی فروشگاه لباس با طراحی واکنش‌گرا، دسته‌بندی محصولات و تجربه خرید ساده.</p>
-            <div class="demo-tags"><span>فروشگاه</span><span>واکنش‌گرا</span><span>سبد خرید</span></div>
-          </div>
-        </div>
-        <div class="demo-item">
-          <div class="demo-item-head"><span>نمونه شرکتی · شرکت خدماتی</span><span>۰۲</span></div>
-          <div class="demo-preview corp">
-            <h4>کار شما، حرفه‌ای‌تر.</h4>
-            <p>معرفی خدمات، اعتمادسازی و راه‌های ارتباطی در یک ساختار شفاف و قابل‌اعتماد.</p>
-            <div class="demo-tags"><span>شرکتی</span><span>معرفی خدمات</span><span>فرم تماس</span></div>
-          </div>
-        </div>
-        <div class="demo-item">
-          <div class="demo-item-head"><span>نمونه شخصی · فریلنسر</span><span>۰۳</span></div>
-          <div class="demo-preview personal">
-            <h4>ایده‌ات را آنلاین کن.</h4>
-            <p>رزومه و معرفی خدمات فریلنسری با طراحی مینیمال، خوانا و سریع.</p>
-            <div class="demo-tags"><span>شخصی</span><span>رزومه</span><span>مینیمال</span></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
 <script>
-// Modal
-const modal = document.getElementById('workModal');
-const openBtn = document.getElementById('openWorkBtn');
-const closeBtn = document.getElementById('closeModal');
-const samples = document.querySelectorAll('.sample[data-demo]');
-
-function openModal(){ modal.classList.add('active'); document.body.style.overflow='hidden'; }
-function closeModal(){ modal.classList.remove('active'); document.body.style.overflow=''; }
-
-openBtn.addEventListener('click', (e)=>{ e.preventDefault(); openModal(); });
-closeBtn.addEventListener('click', closeModal);
-modal.addEventListener('click', (e)=>{ if(e.target === modal) closeModal(); });
-document.addEventListener('keydown', (e)=>{ if(e.key === 'Escape') closeModal(); });
-samples.forEach(s => s.addEventListener('click', openModal));
-
 // Contact form
 document.getElementById('contactForm').addEventListener('submit', async function(e) {
   e.preventDefault();
@@ -623,7 +547,6 @@ document.getElementById('contactForm').addEventListener('submit', async function
   const btn = form.querySelector('button[type="submit"]');
   const originalText = btn.textContent;
   
-  // اطلاعاتی که باید ذخیره بشن
   const orderData = {
     id: Date.now(),
     name: document.getElementById('name').value,
@@ -636,15 +559,11 @@ document.getElementById('contactForm').addEventListener('submit', async function
   btn.disabled = true; btn.textContent = 'در حال ارسال...';
   
   try {
-    // ۱. ارسال به Formspree
     const response = await fetch(form.action, { method:'POST', body:new FormData(form), headers:{'Accept':'application/json'} });
-    
     if (response.ok) {
-      // ۲. ذخیره در حافظه مرورگر برای پنل ادمین
       let savedOrders = JSON.parse(localStorage.getItem('nivaro_contact_orders')) || [];
       savedOrders.push(orderData);
       localStorage.setItem('nivaro_contact_orders', JSON.stringify(savedOrders));
-      
       alert('✅ درخواست شما با موفقیت ارسال شد. به زودی با شما تماس می‌گیرم.');
       form.reset();
     } else {
