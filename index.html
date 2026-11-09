@@ -34,16 +34,53 @@ section{padding:68px 0}.section-title{font-size:30px;margin:0 0 10px}.lead{color
 <div class="sample"><div class="sample-head"><span>نمونه شخصی</span><span>03</span></div><div class="sample-preview" style="background-image:linear-gradient(100deg,#242424dd,#24242444),url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=900&q=80')"><h3>ایده‌ات را آنلاین کن.</h3><span>نمونه‌کار شخصی</span></div><div class="sample-foot">رزومه و معرفی خدمات فریلنسری</div></div>
 </div></div></section>
 <section class="steps" id="process"><div class="wrap"><h2 class="section-title">مراحل انجام پروژه</h2><p class="lead">شفاف و مرحله‌به‌مرحله، از ایده تا انتشار.</p><div class="cards"><article class="card"><div class="num">01</div><h3>نیازسنجی</h3><p>درباره هدف سایت، مخاطب و امکانات موردنیاز صحبت می‌کنیم.</p></article><article class="card"><div class="num">02</div><h3>طراحی و بازبینی</h3><p>طرح اولیه آماده می‌شود و بازخورد شما اعمال می‌شود.</p></article><article class="card"><div class="num">03</div><h3>تحویل و انتشار</h3><p>پس از تأیید، فایل‌ها و روش انتشار سایت تحویل داده می‌شود.</p></article></div></div></section>
-<section id="contact"><div class="wrap contact-grid"><div><h2 class="section-title">درباره پروژه‌ات حرف بزنیم.</h2><p class="lead">فرم زیر فعلاً نمونه است. برای دریافت واقعی پیام‌ها باید آن را به ایمیل یا سرویس فرم متصل کنی.</p><div class="contact-box"><h3>NIVARO Web Studio</h3><p>طراحی سایت برای کسب‌وکارهایی که می‌خواهند آنلاین دیده شوند.</p><p>✉️ برای اطلاعات بیشتر به ایدی روبیکا پیام بده : <a href="https://ble.ir/ahoora_black"
-   target="_blank"
-   rel="noopener noreferrer">
-  @ahoora_black
-</a>
-</a>.</p></div></div>
-<div class="contact-box"><form id="contactForm"><div><label for="name">نام</label><input id="name" required placeholder="نام شما"></div><div><label for="type">نوع سایت</label><select id="type"><option>سایت معرفی کسب‌وکار</option><option>فروشگاه اینترنتی</option><option>صفحه فرود</option><option>سایر</option></select></div><div><label for="details">توضیحات پروژه</label><textarea id="details" required placeholder="چه سایتی نیاز دارید؟"></textarea></div><button class="btn" type="submit">ارسال درخواست</button><div class="hint">با زدن دکمه، میتونی درخواستت رو ارسال کنی.</div></form></div></div></section>
+<section id="contact"><div class="wrap contact-grid"><div><h2 class="section-title">درباره پروژه‌ات حرف بزنیم.</h2><p class="lead">فرم را پر کن؛ درخواستت مستقیم به دست ما می‌رسد.</p><div class="contact-box"><h3>NIVARO Web Studio</h3><p>طراحی سایت برای کسب‌وکارهایی که می‌خواهند آنلاین دیده شوند.</p><p>✉️ برای اطلاعات بیشتر به ایدی روبیکا پیام بده : <a href="https://ble.ir/ahoora_black" target="_blank" rel="noopener noreferrer">@ahoora_black</a>.</p></div></div>
+<div class="contact-box">
+<form id="contactForm" action="https://formspree.io/f/myeeqeqn" method="POST">
+  <div><label for="name">نام</label><input id="name" name="name" required placeholder="نام شما"></div>
+  <div><label for="email">ایمیل (اختیاری)</label><input id="email" name="email" type="email" placeholder="برای پاسخ بهتر"></div>
+  <div><label for="type">نوع سایت</label>
+    <select id="type" name="type">
+      <option>سایت معرفی کسب‌وکار</option>
+      <option>فروشگاه اینترنتی</option>
+      <option>صفحه فرود</option>
+      <option>سایر</option>
+    </select>
+  </div>
+  <div><label for="details">توضیحات پروژه</label><textarea id="details" name="details" required placeholder="چه سایتی نیاز دارید؟"></textarea></div>
+  <button class="btn" type="submit">ارسال درخواست</button>
+  <div class="hint">با زدن دکمه، درخواستت ارسال می‌شود و به ایمیل ما می‌رسد.</div>
+</form>
+</div></div></section>
 </main>
 <footer><div class="wrap" style="display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap"><span>© 2026 NIVARO Web Studio</span><span>طراحی سایت برای کسب‌وکارها</span></div></footer><div class="toast" id="toast"></div>
 <script>
-document.getElementById('contactForm').addEventListener('submit',async e=>{e.preventDefault();const msg='درخواست پروژه سایت\\nنام: '+document.getElementById('name').value+'\\nنوع سایت: '+document.getElementById('type').value+'\\nتوضیحات: '+document.getElementById('details').value;try{await navigator.clipboard.writeText(msg);alert('متن درخواست ارسال شد.')}catch{prompt('متن :',msg)}});
+document.getElementById('contactForm').addEventListener('submit', async function(e) {
+  e.preventDefault();
+  const form = e.target;
+  const btn = form.querySelector('button[type="submit"]');
+  const originalText = btn.textContent;
+  btn.disabled = true;
+  btn.textContent = 'در حال ارسال...';
+
+  try {
+    const response = await fetch(form.action, {
+      method: 'POST',
+      body: new FormData(form),
+      headers: { 'Accept': 'application/json' }
+    });
+    if (response.ok) {
+      alert('✅ درخواست شما با موفقیت ارسال شد. به زودی با شما تماس می‌گیریم.');
+      form.reset();
+    } else {
+      alert('❌ خطایی رخ داد. لطفاً دوباره تلاش کنید یا از طریق روبیکا پیام بدهید.');
+    }
+  } catch (error) {
+    alert('❌ ارتباط برقرار نشد. لطفاً اینترنت خود را بررسی کنید یا از طریق روبیکا پیام بدهید.');
+  } finally {
+    btn.disabled = false;
+    btn.textContent = originalText;
+  }
+});
 </script>
 </body></html>
