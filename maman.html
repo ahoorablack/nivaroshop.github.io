@@ -44,7 +44,7 @@
         justify-content: center;
         gap: 20px;
         position: relative;
-        min-height: 150px; /* برای اینکه دکمه "نه" وقتی جابه‌جا میشه بهم نریزه */
+        min-height: 150px;
     }
 
     /* استایل دکمه‌ها */
@@ -81,7 +81,7 @@
         font-size: 20px;
         position: absolute;
         top: 10px;
-        left: calc(50% + 120px); /* شروع در سمت راست دکمه بله */
+        left: calc(50% + 120px);
         z-index: 4;
     }
 
@@ -94,11 +94,20 @@
         transform: translate(-50%, -50%) scale(0);
         text-align: center;
         z-index: 100;
-        transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        /* حذف transition از اینجا تا انیمیشن با تاخیر جاوااسکریپت کنترل بشه */
     }
 
+    /* وقتی کلاس show اضافه میشه، از حالت مخفی در میاد */
     #emoji-container.show {
-        transform: translate(-50%, -50%) scale(1);
+        display: block;
+        animation: popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+    }
+
+    /* انیمیشن ظاهر شدن (بوم) */
+    @keyframes popIn {
+        0% { transform: translate(-50%, -50%) scale(0); opacity: 0; }
+        70% { transform: translate(-50%, -50%) scale(1.1); opacity: 1; }
+        100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
     }
 
     .big-emoji {
@@ -127,7 +136,7 @@
     /* قلب‌های پس‌زمینه */
     .heart-bg {
         position: absolute;
-        color: rgba(236, 72, 153, 0.1);
+        color: rgba(236, 72, 153, 0.15);
         font-size: 40px;
         animation: fly 5s linear infinite;
         z-index: 1;
@@ -168,7 +177,6 @@
 <script>
     const btnYes = document.getElementById('btn-yes');
     const btnNo = document.getElementById('btn-no');
-    const buttonsArea = document.getElementById('buttons-area');
     const mainContent = document.getElementById('main-content');
     const emojiContainer = document.getElementById('emoji-container');
 
@@ -184,7 +192,6 @@
 
         // ۲. دکمه "نه" به یک جای تصادفی میره (فقط تا ۴ بار)
         if (noClickCount <= 4) {
-            // محاسبه فاصله تصادفی نسبت به وسط صفحه
             const randomX = (Math.random() - 0.5) * window.innerWidth * 0.7;
             const randomY = (Math.random() - 0.5) * window.innerHeight * 0.7;
             
@@ -209,17 +216,8 @@
         // مخفی کردن کل محتوای اولیه
         mainContent.style.display = 'none';
         
-        // نمایش شکلک و پیام
+        // نمایش شکلک و پیام با کلاس CSS (انیمیشن پاپ‌آپ)
         emojiContainer.classList.add('show');
-
-        // بوم! (Boom) - افکت کوچیک شدن و بزرگ شدن
-        emojiContainer.style.transition = "none"; // غیرفعال کردن موقت انیمیشن
-        emojiContainer.style.transform = "translate(-50%, -50%) scale(0.5)";
-        
-        setTimeout(() => {
-            emojiContainer.style.transition = "transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275)";
-            emojiContainer.style.transform = "translate(-50%, -50%) scale(1)";
-        }, 50);
     });
 </script>
 
