@@ -87,13 +87,13 @@
         <div class="subtitle">آلبوم عکس تیتی گلم 💕</div>
 
         <div class="photo-frame">
-            <!-- مسیر عکس اول تغییر کرد به albumtiti -->
+            <!-- مسیر عکس اول -->
             <img id="current-photo" src="albumtiti/1.jpg" alt="عکس تیتی">
         </div>
 
         <div class="controls">
             <button class="nav-btn" onclick="changePhoto(-1)">❮</button>
-            <div class="counter" id="photo-counter">۱ / ۲۰</div>
+            <div class="counter" id="photo-counter">۱ / ۱۴</div>
             <button class="nav-btn" onclick="changePhoto(1)">❯</button>
         </div>
 
@@ -101,7 +101,7 @@
     </div>
 
 <script>
-    // مسیرها به albumtiti تغییر کردن
+    // لیست ۱۴ عکس و متن‌های لطیف
     const photos = [
         { src: "albumtiti/1.jpg", caption: "۹ ماهگی 🎀" },
         { src: "albumtiti/2.jpg", caption: "اون چشم‌های نازت 🥺" },
@@ -116,13 +116,7 @@
         { src: "albumtiti/11.jpg", caption: "دستای کوچولوت 👐" },
         { src: "albumtiti/12.jpg", caption: "خواب‌های قشنگ ببینی 🌙" },
         { src: "albumtiti/13.jpg", caption: "عزیز دل زندایی 💖" },
-        { src: "albumtiti/14.jpg", caption: "این موهای ناز 😍" },
-        { src: "albumtiti/15.jpg", caption: "قلب کوچولوی ما 🫀" },
-        { src: "albumtiti/16.jpg", caption: "با اسباب‌بازی‌هات چی کار می‌کنی؟ 🧸" },
-        { src: "albumtiti/17.jpg", caption: "دختر خوب و آروم 🌸" },
-        { src: "albumtiti/18.jpg", caption: "همیشه بخند، همیشه شاد 😁" },
-        { src: "albumtiti/19.jpg", caption: "فرشته‌ی زمینی 🌍" },
-        { src: "albumtiti/20.jpg", caption: "خاطرات خوب با تو 💖" }
+        { src: "albumtiti/14.jpg", caption: "خاطرات خوب با تو 💕" }
     ];
 
     let currentIndex = 0;
