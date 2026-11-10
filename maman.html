@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>مامان منو دوست داری؟</title>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
+        font-family: 'Vazirmatn', Tahoma, sans-serif;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        position: relative;
+    }
+
+    .container {
+        text-align: center;
+        position: relative;
+        z-index: 10;
+        width: 100%;
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: clamp(24px, 5vw, 48px);
+        color: #333;
+        margin-bottom: 40px;
+        font-weight: 900;
+        transition: all 0.3s ease;
+    }
+
+    .buttons-area {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        position: relative;
+        min-height: 150px; /* برای اینکه دکمه "نه" وقتی جابه‌جا میشه بهم نریزه */
+    }
+
+    /* استایل دکمه‌ها */
+    button {
+        font-family: 'Vazirmatn', Tahoma, sans-serif;
+        font-weight: 700;
+        border: none;
+        border-radius: 12px;
+        cursor: pointer;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    #btn-yes {
+        background: #10b981; /* سبز */
+        color: white;
+        padding: 20px 60px;
+        font-size: 24px;
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 5;
+    }
+
+    #btn-yes:hover {
+        background: #059669;
+    }
+
+    #btn-no {
+        background: #ef4444; /* قرمز */
+        color: white;
+        padding: 15px 40px;
+        font-size: 20px;
+        position: absolute;
+        top: 10px;
+        left: calc(50% + 120px); /* شروع در سمت راست دکمه بله */
+        z-index: 4;
+    }
+
+    /* شکلک پایانی */
+    #emoji-container {
+        display: none;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) scale(0);
+        text-align: center;
+        z-index: 100;
+        transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    #emoji-container.show {
+        transform: translate(-50%, -50%) scale(1);
+    }
+
+    .big-emoji {
+        font-size: 150px;
+        animation: float 2s ease-in-out infinite;
+    }
+
+    .emoji-text {
+        font-size: 30px;
+        font-weight: 900;
+        color: #ec4899;
+        margin-top: 20px;
+        background: white;
+        padding: 10px 30px;
+        border-radius: 50px;
+        box-shadow: 0 10px 30px rgba(236, 72, 153, 0.3);
+    }
+
+    /* انیمیشن شناور شدن شکلک */
+    @keyframes float {
+        0% { transform: translateY(0px); }
+        50% { transform: translateY(-20px); }
+        100% { transform: translateY(0px); }
+    }
+
+    /* قلب‌های پس‌زمینه */
+    .heart-bg {
+        position: absolute;
+        color: rgba(236, 72, 153, 0.1);
+        font-size: 40px;
+        animation: fly 5s linear infinite;
+        z-index: 1;
+    }
+
+    @keyframes fly {
+        0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+        50% { opacity: 1; }
+        100% { transform: translateY(-100px) rotate(360deg); opacity: 0; }
+    }
+</style>
+</head>
+<body>
+
+    <!-- قلب‌های پس زمینه -->
+    <div class="heart-bg" style="left: 10%; animation-delay: 0s;">❤️</div>
+    <div class="heart-bg" style="left: 30%; animation-delay: 1s;">💖</div>
+    <div class="heart-bg" style="left: 50%; animation-delay: 2s;">💗</div>
+    <div class="heart-bg" style="left: 70%; animation-delay: 3s;">💓</div>
+    <div class="heart-bg" style="left: 90%; animation-delay: 4s;">❤️</div>
+
+    <!-- محتوای اصلی -->
+    <div class="container" id="main-content">
+        <h1>مامان، منو دوست داری؟</h1>
+        
+        <div class="buttons-area" id="buttons-area">
+            <button id="btn-yes">آره! 🥰</button>
+            <button id="btn-no">نه 😢</button>
+        </div>
+    </div>
+
+    <!-- بخش شکلک پایانی -->
+    <div id="emoji-container">
+        <div class="big-emoji">🥰</div>
+        <div class="emoji-text">مرسی مامان! دوستت دارم 💖</div>
+    </div>
+
+<script>
+    const btnYes = document.getElementById('btn-yes');
+    const btnNo = document.getElementById('btn-no');
+    const buttonsArea = document.getElementById('buttons-area');
+    const mainContent = document.getElementById('main-content');
+    const emojiContainer = document.getElementById('emoji-container');
+
+    let noClickCount = 0;
+    let yesScale = 1;
+
+    // وقتی روی دکمه "نه" کلیک میشه
+    btnNo.addEventListener('click', () => {
+        noClickCount++;
+
+        // ۱. دکمه "نه" کوچیک‌تر میشه
+        btnNo.style.transform = `scale(${Math.max(0, 1 - (noClickCount * 0.2))})`;
+
+        // ۲. دکمه "نه" به یک جای تصادفی میره (فقط تا ۴ بار)
+        if (noClickCount <= 4) {
+            // محاسبه فاصله تصادفی نسبت به وسط صفحه
+            const randomX = (Math.random() - 0.5) * window.innerWidth * 0.7;
+            const randomY = (Math.random() - 0.5) * window.innerHeight * 0.7;
+            
+            btnNo.style.left = `calc(50% + ${randomX}px)`;
+            btnNo.style.top = `calc(50% + ${randomY}px)`;
+
+            // ۳. هر بار که "نه" زده میشه، دکمه "آره" بزرگتر میشه
+            yesScale += 0.4;
+            btnYes.style.transform = `translateX(-50%) scale(${yesScale})`;
+        }
+
+        // ۴. بعد از ۴ بار کلیک روی "نه"، دکمه ناپدید میشه
+        if (noClickCount >= 4) {
+            btnNo.style.opacity = '0';
+            btnNo.style.pointerEvents = 'none';
+            btnNo.style.transform = 'scale(0)';
+        }
+    });
+
+    // وقتی روی دکمه "آره" کلیک میشه
+    btnYes.addEventListener('click', () => {
+        // مخفی کردن کل محتوای اولیه
+        mainContent.style.display = 'none';
+        
+        // نمایش شکلک و پیام
+        emojiContainer.classList.add('show');
+
+        // بوم! (Boom) - افکت کوچیک شدن و بزرگ شدن
+        emojiContainer.style.transition = "none"; // غیرفعال کردن موقت انیمیشن
+        emojiContainer.style.transform = "translate(-50%, -50%) scale(0.5)";
+        
+        setTimeout(() => {
+            emojiContainer.style.transition = "transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275)";
+            emojiContainer.style.transform = "translate(-50%, -50%) scale(1)";
+        }, 50);
+    });
+</script>
+
+</body>
+</html>
