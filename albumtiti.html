@@ -45,18 +45,11 @@
     h1 { color: #db2777; font-size: clamp(22px, 5vw, 32px); font-weight: 900; margin-bottom: 5px; }
     .subtitle { color: #f472b6; font-size: 14px; font-weight: 700; margin-bottom: 15px; }
 
-    /* ✅ قاب عکس بزرگ‌تر شد */
     .photo-frame {
-        width: 100%;
-        max-width: 400px; /* سایز بزرگ‌تر */
-        aspect-ratio: 1 / 1;
-        margin: 0 auto 20px;
-        border-radius: 50%;
-        border: 6px solid white;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.1), 0 0 0 4px #fbcfe8;
-        overflow: hidden;
-        position: relative;
-        transition: all 0.5s ease;
+        width: 100%; max-width: 400px; aspect-ratio: 1 / 1;
+        margin: 0 auto 20px; border-radius: 50%;
+        border: 6px solid white; box-shadow: 0 10px 30px rgba(0,0,0,0.1), 0 0 0 4px #fbcfe8;
+        overflow: hidden; position: relative; transition: all 0.5s ease;
     }
     .photo-frame img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
     .photo-frame:hover img { transform: scale(1.05); }
@@ -91,10 +84,11 @@
 
     <div class="album-container">
         <h1>فرشته‌ی کوچک ما</h1>
-        <div class="subtitle">آلبوم عکس دختر دایی گلم 💕</div>
+        <div class="subtitle">آلبوم عکس تیتی گلم 💕</div>
 
         <div class="photo-frame">
-            <img id="current-photo" src="album/1.jpg" alt="عکس دختر دایی">
+            <!-- مسیر عکس اول تغییر کرد به albumtiti -->
+            <img id="current-photo" src="albumtiti/1.jpg" alt="عکس تیتی">
         </div>
 
         <div class="controls">
@@ -107,27 +101,28 @@
     </div>
 
 <script>
+    // مسیرها به albumtiti تغییر کردن
     const photos = [
-        { src: "album/1.jpg", caption: "۹ ماهگی 🎀" },
-        { src: "album/2.jpg", caption: "اون چشم‌های نازت 🥺" },
-        { src: "album/3.jpg", caption: "خنده‌های قشنگت 😍" },
-        { src: "album/4.jpg", caption: "فرشته‌ی کوچک ما 💖" },
-        { src: "album/5.jpg", caption: "دنیای زندایی رو روشن کردی ✨" },
-        { src: "album/6.jpg", caption: "این لپ‌های گلی 🍑" },
-        { src: "album/7.jpg", caption: "شاهزاده خانم کوچولو 👑" },
-        { src: "album/8.jpg", caption: "همیشه شاد باشی 🌸" },
-        { src: "album/9.jpg", caption: "نازترین دختر دنیا 💕" },
-        { src: "album/10.jpg", caption: "لبخندت مثل بهاره 🌷" },
-        { src: "album/11.jpg", caption: "دستای کوچولوت 👐" },
-        { src: "album/12.jpg", caption: "خواب‌های قشنگ ببینی 🌙" },
-        { src: "album/13.jpg", caption: "عزیز دل زندایی 💖" },
-        { src: "album/14.jpg", caption: "این موهای ناز 😍" },
-        { src: "album/15.jpg", caption: "قلب کوچولوی ما 🫀" },
-        { src: "album/16.jpg", caption: "با اسباب‌بازی‌هات چی کار می‌کنی؟ 🧸" },
-        { src: "album/17.jpg", caption: "دختر خوب و آروم 🌸" },
-        { src: "album/18.jpg", caption: "همیشه بخند، همیشه شاد 😁" },
-        { src: "album/19.jpg", caption: "فرشته‌ی زمینی 🌍" },
-        { src: "album/20.jpg", caption: "خاطرات خوب با تو 💖" }
+        { src: "albumtiti/1.jpg", caption: "۹ ماهگی 🎀" },
+        { src: "albumtiti/2.jpg", caption: "اون چشم‌های نازت 🥺" },
+        { src: "albumtiti/3.jpg", caption: "خنده‌های قشنگت 😍" },
+        { src: "albumtiti/4.jpg", caption: "فرشته‌ی کوچک ما 💖" },
+        { src: "albumtiti/5.jpg", caption: "دنیای زندایی رو روشن کردی ✨" },
+        { src: "albumtiti/6.jpg", caption: "این لپ‌های گلی 🍑" },
+        { src: "albumtiti/7.jpg", caption: "شاهزاده خانم کوچولو 👑" },
+        { src: "albumtiti/8.jpg", caption: "همیشه شاد باشی 🌸" },
+        { src: "albumtiti/9.jpg", caption: "نازترین دختر دنیا 💕" },
+        { src: "albumtiti/10.jpg", caption: "لبخندت مثل بهاره 🌷" },
+        { src: "albumtiti/11.jpg", caption: "دستای کوچولوت 👐" },
+        { src: "albumtiti/12.jpg", caption: "خواب‌های قشنگ ببینی 🌙" },
+        { src: "albumtiti/13.jpg", caption: "عزیز دل زندایی 💖" },
+        { src: "albumtiti/14.jpg", caption: "این موهای ناز 😍" },
+        { src: "albumtiti/15.jpg", caption: "قلب کوچولوی ما 🫀" },
+        { src: "albumtiti/16.jpg", caption: "با اسباب‌بازی‌هات چی کار می‌کنی؟ 🧸" },
+        { src: "albumtiti/17.jpg", caption: "دختر خوب و آروم 🌸" },
+        { src: "albumtiti/18.jpg", caption: "همیشه بخند، همیشه شاد 😁" },
+        { src: "albumtiti/19.jpg", caption: "فرشته‌ی زمینی 🌍" },
+        { src: "albumtiti/20.jpg", caption: "خاطرات خوب با تو 💖" }
     ];
 
     let currentIndex = 0;
@@ -161,13 +156,9 @@
 
     function toggleMusic() {
         if (isPlaying) {
-            music.pause();
-            musicBtn.innerText = '🎵';
-            musicBtn.classList.remove('playing');
+            music.pause(); musicBtn.innerText = '🎵'; musicBtn.classList.remove('playing');
         } else {
-            music.play();
-            musicBtn.innerText = '⏸️';
-            musicBtn.classList.add('playing');
+            music.play(); musicBtn.innerText = '⏸️'; musicBtn.classList.add('playing');
         }
         isPlaying = !isPlaying;
     }
