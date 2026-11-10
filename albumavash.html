@@ -11,7 +11,7 @@
         font-family: 'Vazirmatn', Tahoma, sans-serif;
         min-height: 100vh;
         display: flex; flex-direction: column; align-items: center; justify-content: center;
-        overflow: hidden; position: relative; padding: 10px; /* پدینگ کمتر برای موبایل */
+        overflow: hidden; position: relative; padding: 10px;
     }
 
     .music-btn {
@@ -33,7 +33,7 @@
         background: rgba(255, 255, 255, 0.85);
         backdrop-filter: blur(10px);
         border-radius: 30px;
-        padding: 20px; /* پدینگ کمتر برای جا شدن قاب بزرگ */
+        padding: 20px;
         box-shadow: 0 20px 50px rgba(250, 204, 21, 0.3);
         border: 4px dashed #facc15;
         text-align: center;
@@ -46,18 +46,11 @@
     h1 { color: #0369a1; font-size: clamp(22px, 5vw, 32px); font-weight: 900; margin-bottom: 5px; }
     .subtitle { color: #ca8a04; font-size: 14px; font-weight: 700; margin-bottom: 15px; }
 
-    /* ✅ قاب عکس بزرگ‌تر شد */
     .photo-frame {
-        width: 100%;
-        max-width: 400px; /* سایز بزرگ‌تر */
-        aspect-ratio: 1 / 1;
-        margin: 0 auto 20px;
-        border-radius: 30px;
-        border: 6px solid white;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.1), 0 0 0 4px #7dd3fc;
-        overflow: hidden;
-        position: relative;
-        transition: all 0.5s ease;
+        width: 100%; max-width: 400px; aspect-ratio: 1 / 1;
+        margin: 0 auto 20px; border-radius: 30px;
+        border: 6px solid white; box-shadow: 0 10px 30px rgba(0,0,0,0.1), 0 0 0 4px #7dd3fc;
+        overflow: hidden; position: relative; transition: all 0.5s ease;
     }
     .photo-frame img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
     .photo-frame:hover img { transform: scale(1.05); }
@@ -92,10 +85,11 @@
 
     <div class="album-container">
         <h1>برادر کوچک من</h1>
-        <div class="subtitle">۱ سال و ۳ ماهگی 🎈</div>
+        <div class="subtitle">آلبوم آواشِ گلم 🎈</div>
 
         <div class="photo-frame">
-            <img id="current-photo" src="brother/1.jpg" alt="عکس برادر">
+            <!-- مسیر عکس اول تغییر کرد به albumavash -->
+            <img id="current-photo" src="albumavash/1.jpg" alt="عکس آواش">
         </div>
 
         <div class="controls">
@@ -108,27 +102,28 @@
     </div>
 
 <script>
+    // مسیرها به albumavash تغییر کردن
     const photos = [
-        { src: "brother/1.jpg", caption: "شیطونک کوچولوی ما 🍼" },
-        { src: "brother/2.jpg", caption: "این چشم‌های ناز 😍" },
-        { src: "brother/3.jpg", caption: "دنیای من رو روشن کردی ☀️" },
-        { src: "brother/4.jpg", caption: "عشق منی برادر کوچولو 💙" },
-        { src: "brother/5.jpg", caption: "لبخندت قلبمو آب میکنه 🥰" },
-        { src: "brother/6.jpg", caption: "بامزه‌ترین پسر دنیا 🦁" },
-        { src: "brother/7.jpg", caption: "بزرگ شدنت رو می‌بینم 🌱" },
-        { src: "brother/8.jpg", caption: "همیشه مراقبت هستم 🛡️" },
-        { src: "brother/9.jpg", caption: "خنده‌هات آرومم میکنه 😌" },
-        { src: "brother/10.jpg", caption: "قهرمان کوچولوی من 🏆" },
-        { src: "brother/11.jpg", caption: "این لپ‌های گلی 🍑" },
-        { src: "brother/12.jpg", caption: "آتیش‌پاره‌ی خونه 🔥" },
-        { src: "brother/13.jpg", caption: "دوست داشتنی‌ترین موجود دنیا 💕" },
-        { src: "brother/14.jpg", caption: "وقتی می‌خندی، دنیا قشنگ‌تره ✨" },
-        { src: "brother/15.jpg", caption: "بغلت خیلی گرمه 🤗" },
-        { src: "brother/16.jpg", caption: "با اسباب‌بازی‌هات چی کار می‌کنی؟ 🧸" },
-        { src: "brother/17.jpg", caption: "پسر خوب و آروم 🌙" },
-        { src: "brother/18.jpg", caption: "همیشه بخند، همیشه شاد 😁" },
-        { src: "brother/19.jpg", caption: "برادر بهترین دنیا 🌍" },
-        { src: "brother/20.jpg", caption: "خاطرات خوب با تو 💙" }
+        { src: "albumavash/1.jpg", caption: "شیطونک کوچولوی ما 🍼" },
+        { src: "albumavash/2.jpg", caption: "این چشم‌های ناز 😍" },
+        { src: "albumavash/3.jpg", caption: "دنیای من رو روشن کردی ☀️" },
+        { src: "albumavash/4.jpg", caption: "عشق منی برادر کوچولو 💙" },
+        { src: "albumavash/5.jpg", caption: "لبخندت قلبمو آب میکنه 🥰" },
+        { src: "albumavash/6.jpg", caption: "بامزه‌ترین پسر دنیا 🦁" },
+        { src: "albumavash/7.jpg", caption: "بزرگ شدنت رو می‌بینم 🌱" },
+        { src: "albumavash/8.jpg", caption: "همیشه مراقبت هستم 🛡️" },
+        { src: "albumavash/9.jpg", caption: "خنده‌هات آرومم میکنه 😌" },
+        { src: "albumavash/10.jpg", caption: "قهرمان کوچولوی من 🏆" },
+        { src: "albumavash/11.jpg", caption: "این لپ‌های گلی 🍑" },
+        { src: "albumavash/12.jpg", caption: "آتیش‌پاره‌ی خونه 🔥" },
+        { src: "albumavash/13.jpg", caption: "دوست داشتنی‌ترین موجود دنیا 💕" },
+        { src: "albumavash/14.jpg", caption: "وقتی می‌خندی، دنیا قشنگ‌تره ✨" },
+        { src: "albumavash/15.jpg", caption: "بغلت خیلی گرمه 🤗" },
+        { src: "albumavash/16.jpg", caption: "با اسباب‌بازی‌هات چی کار می‌کنی؟ 🧸" },
+        { src: "albumavash/17.jpg", caption: "پسر خوب و آروم 🌙" },
+        { src: "albumavash/18.jpg", caption: "همیشه بخند، همیشه شاد 😁" },
+        { src: "albumavash/19.jpg", caption: "برادر بهترین دنیا 🌍" },
+        { src: "albumavash/20.jpg", caption: "خاطرات خوب با تو 💙" }
     ];
 
     let currentIndex = 0;
@@ -164,13 +159,9 @@
 
     function toggleMusic() {
         if (isPlaying) {
-            music.pause();
-            musicBtn.innerText = '🎵';
-            musicBtn.classList.remove('playing');
+            music.pause(); musicBtn.innerText = '🎵'; musicBtn.classList.remove('playing');
         } else {
-            music.play();
-            musicBtn.innerText = '⏸️';
-            musicBtn.classList.add('playing');
+            music.play(); musicBtn.innerText = '⏸️'; musicBtn.classList.add('playing');
         }
         isPlaying = !isPlaying;
     }
