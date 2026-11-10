@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>دایی منو دوست داری؟</title>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+    * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+    body {
+        background: #2e1065; /* بنفش تیره و عمیق */
+        background-image: radial-gradient(circle at 50% 0%, #4c1d95, #2e1065 70%); /* هاله نئونی */
+        font-family: 'Vazirmatn', Tahoma, sans-serif;
+        height: 100vh; height: 100dvh;
+        display: flex; flex-direction: column; align-items: center; justify-content: center;
+        overflow: hidden; position: relative;
+    }
+    .container { text-align: center; position: relative; z-index: 10; width: 100%; padding: 15px; }
+    h1 { font-size: clamp(20px, 6vw, 36px); color: #f8fafc; margin-bottom: 30px; font-weight: 900; line-height: 1.4; text-shadow: 0 0 10px rgba(168, 85, 247, 0.5); }
+    .buttons-area {
+        display: flex; flex-direction: column; align-items: center; justify-content: center;
+        gap: 15px; position: relative; min-height: 150px; width: 100%;
+    }
+    button {
+        font-family: 'Vazirmatn', Tahoma, sans-serif; font-weight: 700; border: none; border-radius: 15px;
+        cursor: pointer; box-shadow: 0 8px 15px rgba(0,0,0,0.3); transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        width: 80%; max-width: 300px; user-select: none;
+    }
+    /* دکمه آره: صورتی/بنفش نئونی */
+    #btn-yes { background: #d946ef; color: white; padding: 18px 20px; font-size: 22px; position: relative; z-index: 5; font-weight: 900; box-shadow: 0 0 20px rgba(217, 70, 239, 0.4); }
+    #btn-yes:active { transform: scale(0.95); background: #c026d3; }
+    
+    /* دکمه نه: خاکستری تیره */
+    #btn-no { background: #475569; color: #f8fafc; padding: 15px 20px; font-size: 18px; position: relative; z-index: 4; }
+
+    #emoji-container {
+        display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%) scale(0);
+        text-align: center; z-index: 100; width: 100%; padding: 20px; pointer-events: none;
+    }
+    #emoji-container.show { display: block; animation: popIn 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards; pointer-events: auto; }
+    @keyframes popIn { 0% { transform: translate(-50%, -50%) scale(0); opacity: 0; } 70% { transform: translate(-50%, -50%) scale(1.1); opacity: 1; } 100% { transform: translate(-50%, -50%) scale(1); opacity: 1; } }
+    
+    .big-emoji { font-size: clamp(80px, 25vw, 150px); animation: float 2s ease-in-out infinite; display: inline-block; }
+    .emoji-text { font-size: clamp(16px, 5vw, 28px); font-weight: 900; color: #2e1065; margin-top: 20px; background: #d946ef; padding: 10px 20px; border-radius: 50px; box-shadow: 0 10px 30px rgba(217, 70, 239, 0.4); display: inline-block; line-height: 1.5; }
+    @keyframes float { 0% { transform: translateY(0px); } 50% { transform: translateY(-15px); } 100% { transform: translateY(0px); } }
+    
+    .heart-bg { position: absolute; color: rgba(217, 70, 239, 0.15); font-size: 30px; animation: fly 5s linear infinite; z-index: 1; }
+    @keyframes fly { 0% { transform: translateY(100vh) rotate(0deg); opacity: 0; } 50% { opacity: 1; } 100% { transform: translateY(-100px) rotate(360deg); opacity: 0; } }
+</style>
+</head>
+<body>
+    <div class="heart-bg" style="left: 10%; animation-delay: 0s;">🎮</div>
+    <div class="heart-bg" style="left: 30%; animation-delay: 1s;">🎸</div>
+    <div class="heart-bg" style="left: 50%; animation-delay: 2s;">🎧</div>
+    <div class="heart-bg" style="left: 70%; animation-delay: 3s;">🕹️</div>
+    <div class="heart-bg" style="left: 90%; animation-delay: 4s;">🎮</div>
+
+    <div class="container" id="main-content">
+        <h1>دایی، منو دوست داری؟</h1>
+        <div class="buttons-area" id="buttons-area">
+            <button id="btn-yes">آره! 😎</button>
+            <button id="btn-no">نه 😢</button>
+        </div>
+    </div>
+    <div id="emoji-container">
+        <div class="big-emoji">🤘</div>
+        <div class="emoji-text">مرسی دایی! تو بهترینی 💜</div>
+    </div>
+
+<script>
+    const btnYes = document.getElementById('btn-yes'); const btnNo = document.getElementById('btn-no');
+    const mainContent = document.getElementById('main-content'); const emojiContainer = document.getElementById('emoji-container');
+    let noClickCount = 0; let yesScale = 1; let currentTop = 0; let currentLeft = 0;
+
+    btnNo.addEventListener('click', () => {
+        noClickCount++;
+        btnNo.style.transform = `scale(${Math.max(0, 1 - (noClickCount * 0.2))})`;
+        if (noClickCount <= 4) {
+            if (noClickCount === 1) { currentTop = btnNo.offsetTop; currentLeft = btnNo.offsetLeft; }
+            const randomX = (Math.random() - 0.5) * window.innerWidth * 0.6;
+            const randomY = (Math.random() - 0.5) * window.innerHeight * 0.3;
+            btnNo.style.position = 'absolute';
+            btnNo.style.top = `${currentTop + randomY}px`; btnNo.style.left = `${currentLeft + randomX}px`;
+            yesScale += 0.3; btnYes.style.transform = `scale(${yesScale})`;
+        }
+        if (noClickCount >= 4) { btnNo.style.opacity = '0'; btnNo.style.pointerEvents = 'none'; btnNo.style.transform = 'scale(0)'; }
+    });
+    btnYes.addEventListener('click', () => { mainContent.style.display = 'none'; emojiContainer.classList.add('show'); });
+</script>
+</body>
+</html>
